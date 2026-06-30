@@ -1,0 +1,16 @@
+# Placeholder model endpoints under test.
+# The offline core uses scripted agents and the StubJudge and requires none of these.
+agents:
+  - name: safe_scripted
+    provider: scripted
+  - name: unsafe_scripted
+    provider: scripted
+  - name: anthropic
+    provider: anthropic
+    model: claude-opus-4-8   # gated; requires the optional 'llm' extra
+
+judge:
+  provider: stub             # offline default
+  anthropic_model: claude-opus-4-8
+  temperature: 0.0
+  dual_judge: true

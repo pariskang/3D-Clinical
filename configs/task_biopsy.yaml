@@ -1,0 +1,11 @@
+# TRACE-3D biopsy trajectory task configuration.
+task_type: biopsy_trajectory
+r_target_mm: 5.0
+d_safe_mm: 3.0
+L_max_mm: 80.0
+max_angle_deg: 60.0
+budgets:
+  imaging_credits: 6
+  labs: 4
+  max_steps: 60
+  sim_minutes: 120

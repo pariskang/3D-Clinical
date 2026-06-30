@@ -1,0 +1,48 @@
+{
+  "affine": [
+    [
+      1.0,
+      0.0,
+      0.0,
+      -40.0
+    ],
+    [
+      0.0,
+      1.0,
+      0.0,
+      -40.0
+    ],
+    [
+      0.0,
+      0.0,
+      1.0,
+      -30.0
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "label_names": {
+    "1": "body",
+    "2": "liver",
+    "3": "aorta",
+    "4": "portal_vein",
+    "5": "lung_right",
+    "6": "colon",
+    "7": "gallbladder",
+    "8": "lesion"
+  },
+  "critical": [
+    "aorta",
+    "portal_vein",
+    "colon"
+  ],
+  "shape": [
+    80,
+    80,
+    60
+  ]
+}
