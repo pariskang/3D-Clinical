@@ -53,6 +53,7 @@ LABEL_LUNG_RIGHT = 5
 LABEL_COLON = 6
 LABEL_GALLBLADDER = 7
 LABEL_LESION = 8
+LABEL_BOWEL = 9
 
 LABEL_NAMES = {
     LABEL_BODY: "body",
@@ -63,6 +64,7 @@ LABEL_NAMES = {
     LABEL_COLON: "colon",
     LABEL_GALLBLADDER: "gallbladder",
     LABEL_LESION: "lesion",
+    LABEL_BOWEL: "bowel_loop",
 }
 
 CRITICAL = ["aorta", "portal_vein", "colon"]
@@ -93,11 +95,21 @@ def _grids():
     return X, Y, Z
 
 
-def build_volume() -> tuple[np.ndarray, np.ndarray]:
+def build_volume(anterior_blocker: dict | None = None) -> tuple[np.ndarray, np.ndarray]:
     """Construct the labeled synthetic volume and its affine.
 
     Later assignments overwrite earlier ones, so order matters: body first,
     organs on top, vessels and lesion last.
+
+    Parameters
+    ----------
+    anterior_blocker : dict | None
+        When ``None`` (default) the volume is byte-identical to the original
+        smoke case. When a dict ``{"center": [x, y, z], "radius": r}`` is given,
+        a sphere labeled ``LABEL_BOWEL`` ("bowel_loop") is voxelized *after* the
+        lesion. It may overwrite body/liver voxels but never lesion voxels (they
+        are masked out), producing an anterior obstacle for the "true-pierce"
+        case family.
     """
     X, Y, Z = _grids()
     vol = np.zeros(SHAPE, dtype=np.int16)
@@ -150,6 +162,15 @@ def build_volume() -> tuple[np.ndarray, np.ndarray]:
     )
     vol[lesion] = LABEL_LESION
 
+    # Optional anterior blocker (bowel loop): a sphere placed AFTER the lesion so
+    # it can overwrite body/liver, but never the lesion itself.
+    if anterior_blocker is not None:
+        bc = np.asarray(anterior_blocker["center"], dtype=float)
+        br = float(anterior_blocker["radius"])
+        bowel = ((X - bc[0]) ** 2 + (Y - bc[1]) ** 2 + (Z - bc[2]) ** 2) <= br ** 2
+        bowel &= vol != LABEL_LESION  # never overwrite lesion voxels
+        vol[bowel] = LABEL_BOWEL
+
     return vol, _affine()
 
 
@@ -170,20 +191,38 @@ def _lesion_centroid_world(vol: np.ndarray, affine: np.ndarray) -> np.ndarray:
     return np.asarray(vox_to_world(affine, centroid_vox), dtype=float)
 
 
-def _build_ground_truth(scene: SceneGraph, vol: np.ndarray, affine: np.ndarray) -> GroundTruth:
+def _build_ground_truth(
+    scene: SceneGraph,
+    vol: np.ndarray,
+    affine: np.ndarray,
+    forbidden_structures: list[str] | None = None,
+    feasible_exists: bool | None = None,
+    nearest_critical: str | None = None,
+) -> GroundTruth:
+    """Seal the ground truth for a synthetic scene.
+
+    The three optional overrides let derived case families (e.g. the anterior
+    "true-pierce" blocker cases) extend the forbidden set, flag feasibility, and
+    name the nearest critical structure without touching the default smoke case,
+    which uses the original hardcoded values when they are left ``None``.
+    """
     lesion_mm = _lesion_centroid_world(vol, affine)
     lesion_node = scene.node("lesion")
     side = lesion_node.side if lesion_node else "right"
+
+    forbidden = list(forbidden_structures) if forbidden_structures is not None else ["aorta", "portal_vein", "colon"]
+    feasible = True if feasible_exists is None else bool(feasible_exists)
+    near_crit = nearest_critical if nearest_critical is not None else "portal_vein"
 
     spec = TrajectorySpec(
         target_point_mm=[float(v) for v in lesion_mm],
         r_target_mm=R_TARGET_MM,
         allowed_entry_surface="anterior_abdominal_wall",
-        forbidden_structures=["aorta", "portal_vein", "colon"],
+        forbidden_structures=forbidden,
         d_safe_mm=D_SAFE_MM,
         L_max_mm=80.0,
         max_angle_deg=60.0,
-        feasible_exists=True,
+        feasible_exists=feasible,
     )
 
     rubric = [
@@ -207,7 +246,7 @@ def _build_ground_truth(scene: SceneGraph, vol: np.ndarray, affine: np.ndarray) 
     gold_beliefs = {
         "lesion_organ": "liver",
         "lesion_side": side,
-        "nearest_critical": "portal_vein",
+        "nearest_critical": near_crit,
         "relations": {"lesion_anterior_to_portal_vein": True},
     }
 

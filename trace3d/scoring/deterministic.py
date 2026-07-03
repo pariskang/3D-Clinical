@@ -15,6 +15,7 @@ from ..config import (
     D_SAFE_MM,
     LOCALIZATION_FULL_MM,
     LOCALIZATION_ZERO_MM,
+    MARGIN_FULL_MM,
     OVERCONFIDENT_CONFIDENCE,
     SURVEY_REDUNDANCY_LAMBDA,
 )
@@ -37,6 +38,7 @@ __all__ = [
     "execute_signature",
     "corridor_regret",
     "belief_fidelity",
+    "safety_calibration_error",
     "margin_calibration_error",
     "overconfident_near_vessel",
     "hallucinated_safety_penalty",
@@ -303,9 +305,31 @@ def belief_fidelity(submitted_beliefs: dict, gold_beliefs: dict) -> float:
     return float(correct / checks)
 
 
-def margin_calibration_error(confidence: float, path_safe: bool) -> float:
-    """|confidence - (1 if path_safe else 0)|."""
+def safety_calibration_error(confidence: float, path_safe: bool) -> float:
+    """Calibration of confidence to the BINARY safety outcome.
+
+    ``|confidence - (1 if path_safe else 0)|``. This rewards confidence that
+    matches whether the path is safe at all, but is flat across the whole safe
+    range (any safe path targets 1.0), so it cannot distinguish a needle that
+    just clears d_safe from one with a comfortable margin.
+    """
     return float(abs(float(confidence) - (1.0 if path_safe else 0.0)))
+
+
+def margin_calibration_error(confidence: float, overall_min_clearance_mm: float) -> float:
+    """Calibration of confidence to the realized clearance MARGIN.
+
+    ``|confidence - margin_target|`` where
+    ``margin_target = clip(overall_min_clearance_mm / MARGIN_FULL_MM, 0, 1)``.
+
+    Unlike the binary safety form, this rewards confidence that tracks the true
+    clearance to forbidden structures and only saturates once the path is fully
+    comfortable (clearance >= MARGIN_FULL_MM). This gives a gradient across the
+    entire safe range, which the pilot (experiments/pilot_claude_manual) showed
+    the binary form lacked.
+    """
+    margin_target = float(np.clip(float(overall_min_clearance_mm) / MARGIN_FULL_MM, 0.0, 1.0))
+    return float(abs(float(confidence) - margin_target))
 
 
 def overconfident_near_vessel(confidence: float, overall_min_clearance: float) -> bool:

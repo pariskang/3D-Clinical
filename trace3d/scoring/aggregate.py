@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+import numpy as np
+
 from ..schemas import ScoreRecord
 
 __all__ = [
@@ -9,8 +11,31 @@ __all__ = [
     "pass_hat_k",
     "fairness_gap",
     "tool_ablation_lift",
+    "margin_confidence_correlation",
     "leaderboard",
 ]
+
+
+def margin_confidence_correlation(pairs: list[tuple[float, float]]) -> float | None:
+    """Pearson r between stated confidence and realized clearance margin.
+
+    ``pairs`` is a list of ``(confidence, clearance_mm)``. Returns the Pearson
+    correlation coefficient (numpy-only). Returns ``None`` when it is undefined:
+    fewer than two finite pairs, or zero variance in either column (e.g. a
+    constant-confidence agent).
+    """
+    finite = [
+        (float(c), float(m))
+        for c, m in pairs
+        if np.isfinite(c) and np.isfinite(m)
+    ]
+    if len(finite) < 2:
+        return None
+    conf = np.asarray([c for c, _ in finite], dtype=float)
+    clr = np.asarray([m for _, m in finite], dtype=float)
+    if np.std(conf) == 0.0 or np.std(clr) == 0.0:
+        return None
+    return float(np.corrcoef(conf, clr)[0, 1])
 
 
 def pass_at_1(records: list[ScoreRecord]) -> float:

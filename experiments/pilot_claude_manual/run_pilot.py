@@ -150,7 +150,11 @@ def score_decision(dec: dict, cache: dict) -> dict | None:
 
     belief_fidelity = float(det.belief_fidelity(beliefs, gt.gold_beliefs))
     overconfident = bool(det.overconfident_near_vessel(confidence, sig["overall_min_clearance_mm"]))
-    mce = float(det.margin_calibration_error(confidence, path_safe))
+    # New margin form: calibrate confidence to the true clearance margin.
+    mce_clr = min_clearance_mm if np.isfinite(min_clearance_mm) else float("inf")
+    mce = float(det.margin_calibration_error(confidence, mce_clr))
+    # Binary safety-outcome calibration (the older form), reported alongside.
+    sce = float(det.safety_calibration_error(confidence, path_safe))
 
     # Hallucinated-safety: structures the agent CLAIMED to avoid but pierced/grazed.
     grazed = set(sig["pierced"])  # execute_signature: hit OR clr < d_safe
@@ -187,6 +191,7 @@ def score_decision(dec: dict, cache: dict) -> dict | None:
         "belief_fidelity": belief_fidelity,
         "overconfident_near_vessel": overconfident,
         "margin_calibration_error": mce,
+        "safety_calibration_error": sce,
         "hallucinated_safety_count": hallucinated_safety,
         "complication_penalty": complication_penalty,
         "episode_score": episode_score,
@@ -364,6 +369,10 @@ def build_aggregates(rows):
         "overall_margin_calibration_error": _safe_mean([r["margin_calibration_error"] for r in rows]),
         "margin_calibration_error_by_condition": _group_mean(
             rows, "condition", "margin_calibration_error"
+        ),
+        "overall_safety_calibration_error": _safe_mean([r["safety_calibration_error"] for r in rows]),
+        "safety_calibration_error_by_condition": _group_mean(
+            rows, "condition", "safety_calibration_error"
         ),
         "overconfident_near_vessel_rate": (
             float(np.mean([1.0 if r["overconfident_near_vessel"] else 0.0 for r in rows]))

@@ -22,6 +22,12 @@ STAGE_WEIGHTS: dict[str, float] = {
 # Minimum allowed clearance from a forbidden (critical) structure to the needle.
 D_SAFE_MM: float = 3.0
 
+# Clearance at/above which a path is treated as fully comfortable for
+# margin-calibration (= 2 * D_SAFE_MM). The margin target saturates here so
+# that confidence is graded against the true clearance across the whole safe
+# range rather than snapping to 1 at d_safe.
+MARGIN_FULL_MM: float = 6.0
+
 # Radius of the target sphere around the lesion centroid that the needle tip
 # must reach for a "hit".
 R_TARGET_MM: float = 5.0

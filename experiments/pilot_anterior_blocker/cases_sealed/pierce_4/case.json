@@ -1,0 +1,221 @@
+{
+  "case_id": "pierce-blocker-004",
+  "schema_version": "1.0",
+  "task_type": "biopsy_trajectory",
+  "specialty": "interventional_radiology",
+  "synthetic_lesion": true,
+  "source": {
+    "dataset": "synthetic-analytic",
+    "license": "CC0",
+    "modality": "CT",
+    "spacing_mm": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "frame": "RAS"
+  },
+  "scene_graph_ref": "scene/scene_graph.json",
+  "patient_brief": {
+    "age": 61,
+    "sex": "female",
+    "self_reported_race": "unspecified",
+    "presentation": "Incidental solid liver lesion on surveillance CT; rising AFP. Image-guided percutaneous biopsy requested. A loop of bowel lies along the direct anterior approach."
+  },
+  "tool_budget": {
+    "imaging_credits": 6,
+    "labs": 4,
+    "max_steps": 60,
+    "sim_minutes": 120
+  },
+  "fairness_variant_of": null,
+  "ground_truth": {
+    "lesion_true_centroid_mm": [
+      18.0,
+      10.0,
+      0.0
+    ],
+    "lesion_true_organ": "liver",
+    "lesion_true_side": "right",
+    "gold_urgency": "elective",
+    "gold_ddx_ranked": [
+      {
+        "label": "hepatocellular_carcinoma",
+        "rank": 1
+      },
+      {
+        "label": "metastasis",
+        "rank": 2
+      },
+      {
+        "label": "hemangioma",
+        "rank": 3
+      }
+    ],
+    "gold_working_dx": "suspicious_liver_lesion",
+    "gold_management": "image_guided_percutaneous_biopsy",
+    "examiner_checklist": [
+      "confirm coagulation status",
+      "confirm informed consent",
+      "plan corridor avoiding vessels and colon"
+    ],
+    "gold_govern": {
+      "required_safety": [
+        "check_coagulation",
+        "informed_consent",
+        "avoid_vessels"
+      ],
+      "partial_order": [
+        [
+          "informed_consent",
+          "needle_insertion"
+        ],
+        [
+          "check_coagulation",
+          "needle_insertion"
+        ]
+      ],
+      "escalate": false
+    },
+    "trajectory_spec": {
+      "target_point_mm": [
+        18.0,
+        10.0,
+        0.0
+      ],
+      "r_target_mm": 5.0,
+      "allowed_entry_surface": "anterior_abdominal_wall",
+      "forbidden_structures": [
+        "aorta",
+        "portal_vein",
+        "colon",
+        "bowel_loop"
+      ],
+      "d_safe_mm": 3.0,
+      "L_max_mm": 80.0,
+      "max_angle_deg": 60.0,
+      "feasible_exists": true
+    },
+    "gold_steps": [
+      "check_coagulation",
+      "informed_consent",
+      "plan_corridor",
+      "needle_insertion"
+    ],
+    "gold_beliefs": {
+      "lesion_organ": "liver",
+      "lesion_side": "right",
+      "nearest_critical": "bowel_loop",
+      "relations": {
+        "lesion_anterior_to_portal_vein": true
+      }
+    },
+    "rubric": [
+      {
+        "stage": "S",
+        "id": "S1",
+        "criterion": "Elicited all critical structures",
+        "points": 2.0,
+        "check": "deterministic"
+      },
+      {
+        "stage": "S",
+        "id": "S2",
+        "criterion": "Avoided redundant queries",
+        "points": 1.0,
+        "check": "deterministic"
+      },
+      {
+        "stage": "T",
+        "id": "T1",
+        "criterion": "Correct urgency",
+        "points": 1.0,
+        "check": "deterministic"
+      },
+      {
+        "stage": "T",
+        "id": "T2",
+        "criterion": "DDX ranking quality (nDCG)",
+        "points": 1.0,
+        "check": "deterministic"
+      },
+      {
+        "stage": "A",
+        "id": "A1",
+        "criterion": "Correct organ of lesion",
+        "points": 1.0,
+        "check": "deterministic"
+      },
+      {
+        "stage": "A",
+        "id": "A2",
+        "criterion": "Correct laterality",
+        "points": 1.0,
+        "check": "deterministic"
+      },
+      {
+        "stage": "A",
+        "id": "A3",
+        "criterion": "Localization accuracy",
+        "points": 2.0,
+        "check": "deterministic"
+      },
+      {
+        "stage": "A",
+        "id": "A4",
+        "criterion": "Nearest critical structure identified",
+        "points": 1.0,
+        "check": "deterministic"
+      },
+      {
+        "stage": "G",
+        "id": "G1",
+        "criterion": "Required safety checks present",
+        "points": 2.0,
+        "check": "deterministic"
+      },
+      {
+        "stage": "G",
+        "id": "G2",
+        "criterion": "Partial order satisfied",
+        "points": 1.0,
+        "check": "deterministic"
+      },
+      {
+        "stage": "G",
+        "id": "G3",
+        "criterion": "Escalation decision correct",
+        "points": 1.0,
+        "check": "deterministic"
+      },
+      {
+        "stage": "E",
+        "id": "E1",
+        "criterion": "Trajectory hits target safely & feasibly",
+        "points": 4.0,
+        "check": "deterministic"
+      },
+      {
+        "stage": "E",
+        "id": "E2",
+        "criterion": "Clear clinical rationale for path",
+        "points": 1.0,
+        "check": "llm_judge"
+      },
+      {
+        "stage": "R",
+        "id": "R1",
+        "criterion": "Belief fidelity",
+        "points": 2.0,
+        "check": "deterministic"
+      },
+      {
+        "stage": "R",
+        "id": "R2",
+        "criterion": "Calibrated confidence",
+        "points": 1.0,
+        "check": "deterministic"
+      }
+    ]
+  }
+}
