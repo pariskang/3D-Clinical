@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "trace3d"
+version = "0.1.0"
+description = "TRACE-3D: Trajectory & Risk-Aware Clinical Evaluation in 3D — an offline, 3D-grounded LLM-agent medical eval benchmark."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "TRACE-3D" }]
+dependencies = [
+    "numpy>=1.24",
+    "pydantic>=2.5",
+    "typer>=0.9",
+    "jsonlines>=4.0",
+]
+
+[project.optional-dependencies]
+# Heavy/optional deps imported LAZILY inside gated functions only.
+real = ["nibabel>=5.0", "scipy>=1.10"]
+llm = ["anthropic>=0.40"]
+dev = ["pytest>=7.4"]
+
+[project.scripts]
+trace3d = "trace3d.cli:app"
+
+[tool.setuptools.packages.find]
+include = ["trace3d*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
