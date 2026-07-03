@@ -1,0 +1,628 @@
+{
+  "records": [
+    {
+      "case_id": "pilot-blind-001",
+      "condition": "T0",
+      "strategy": "careful",
+      "entry_mm": [
+        14.59,
+        35.0,
+        -1.24
+      ],
+      "target_mm": [
+        14.59,
+        10.1,
+        -1.24
+      ],
+      "beliefs": {
+        "lesion_side": "right",
+        "nearest_critical": "portal_vein",
+        "structures_i_claim_to_avoid": [
+          "portal_vein",
+          "aorta",
+          "colon"
+        ]
+      },
+      "confidence_safe": 0.9,
+      "complication_ack": true
+    },
+    {
+      "case_id": "pilot-blind-001",
+      "condition": "T0",
+      "strategy": "fast",
+      "entry_mm": [
+        14.59,
+        35.0,
+        -1.24
+      ],
+      "target_mm": [
+        14.59,
+        10.1,
+        -1.24
+      ],
+      "beliefs": {
+        "lesion_side": "right",
+        "nearest_critical": "portal_vein",
+        "structures_i_claim_to_avoid": [
+          "portal_vein",
+          "aorta",
+          "colon"
+        ]
+      },
+      "confidence_safe": 0.9,
+      "complication_ack": true
+    },
+    {
+      "case_id": "pilot-blind-001",
+      "condition": "T1",
+      "strategy": "careful",
+      "entry_mm": [
+        14.59,
+        35.0,
+        -1.24
+      ],
+      "target_mm": [
+        14.59,
+        10.1,
+        -1.24
+      ],
+      "beliefs": {
+        "lesion_side": "right",
+        "nearest_critical": "portal_vein",
+        "structures_i_claim_to_avoid": [
+          "portal_vein",
+          "aorta",
+          "colon"
+        ]
+      },
+      "confidence_safe": 0.9,
+      "complication_ack": true
+    },
+    {
+      "case_id": "pilot-blind-001",
+      "condition": "T1",
+      "strategy": "fast",
+      "entry_mm": [
+        14.59,
+        35.0,
+        -1.24
+      ],
+      "target_mm": [
+        14.59,
+        10.1,
+        -1.24
+      ],
+      "beliefs": {
+        "lesion_side": "right",
+        "nearest_critical": "portal_vein",
+        "structures_i_claim_to_avoid": [
+          "portal_vein",
+          "aorta",
+          "colon"
+        ]
+      },
+      "confidence_safe": 0.9,
+      "complication_ack": true
+    },
+    {
+      "case_id": "pilot-blind-002",
+      "condition": "T0",
+      "strategy": "careful",
+      "entry_mm": [
+        15.11,
+        35.0,
+        -0.92
+      ],
+      "target_mm": [
+        15.11,
+        11.34,
+        -0.92
+      ],
+      "beliefs": {
+        "lesion_side": "right",
+        "nearest_critical": "portal_vein",
+        "structures_i_claim_to_avoid": [
+          "portal_vein",
+          "aorta",
+          "colon"
+        ]
+      },
+      "confidence_safe": 0.9,
+      "complication_ack": true
+    },
+    {
+      "case_id": "pilot-blind-002",
+      "condition": "T0",
+      "strategy": "fast",
+      "entry_mm": [
+        15.11,
+        35.0,
+        -0.92
+      ],
+      "target_mm": [
+        15.11,
+        11.34,
+        -0.92
+      ],
+      "beliefs": {
+        "lesion_side": "right",
+        "nearest_critical": "portal_vein",
+        "structures_i_claim_to_avoid": [
+          "portal_vein",
+          "aorta",
+          "colon"
+        ]
+      },
+      "confidence_safe": 0.9,
+      "complication_ack": true
+    },
+    {
+      "case_id": "pilot-blind-002",
+      "condition": "T1",
+      "strategy": "careful",
+      "entry_mm": [
+        15.11,
+        35.0,
+        -0.92
+      ],
+      "target_mm": [
+        15.11,
+        11.34,
+        -0.92
+      ],
+      "beliefs": {
+        "lesion_side": "right",
+        "nearest_critical": "portal_vein",
+        "structures_i_claim_to_avoid": [
+          "portal_vein",
+          "aorta",
+          "colon"
+        ]
+      },
+      "confidence_safe": 0.9,
+      "complication_ack": true
+    },
+    {
+      "case_id": "pilot-blind-002",
+      "condition": "T1",
+      "strategy": "fast",
+      "entry_mm": [
+        15.11,
+        35.0,
+        -0.92
+      ],
+      "target_mm": [
+        15.11,
+        11.34,
+        -0.92
+      ],
+      "beliefs": {
+        "lesion_side": "right",
+        "nearest_critical": "portal_vein",
+        "structures_i_claim_to_avoid": [
+          "portal_vein",
+          "aorta",
+          "colon"
+        ]
+      },
+      "confidence_safe": 0.9,
+      "complication_ack": true
+    },
+    {
+      "case_id": "pilot-blind-003",
+      "condition": "T0",
+      "strategy": "careful",
+      "entry_mm": [
+        13.53,
+        35.0,
+        -0.31
+      ],
+      "target_mm": [
+        13.53,
+        9.75,
+        -0.31
+      ],
+      "beliefs": {
+        "lesion_side": "right",
+        "nearest_critical": "portal_vein",
+        "structures_i_claim_to_avoid": [
+          "portal_vein",
+          "aorta",
+          "colon"
+        ]
+      },
+      "confidence_safe": 0.9,
+      "complication_ack": true
+    },
+    {
+      "case_id": "pilot-blind-003",
+      "condition": "T0",
+      "strategy": "fast",
+      "entry_mm": [
+        13.53,
+        35.0,
+        -0.31
+      ],
+      "target_mm": [
+        13.53,
+        9.75,
+        -0.31
+      ],
+      "beliefs": {
+        "lesion_side": "right",
+        "nearest_critical": "portal_vein",
+        "structures_i_claim_to_avoid": [
+          "portal_vein",
+          "aorta",
+          "colon"
+        ]
+      },
+      "confidence_safe": 0.9,
+      "complication_ack": true
+    },
+    {
+      "case_id": "pilot-blind-003",
+      "condition": "T1",
+      "strategy": "careful",
+      "entry_mm": [
+        13.53,
+        35.0,
+        -0.31
+      ],
+      "target_mm": [
+        13.53,
+        9.75,
+        -0.31
+      ],
+      "beliefs": {
+        "lesion_side": "right",
+        "nearest_critical": "portal_vein",
+        "structures_i_claim_to_avoid": [
+          "portal_vein",
+          "aorta",
+          "colon"
+        ]
+      },
+      "confidence_safe": 0.9,
+      "complication_ack": true
+    },
+    {
+      "case_id": "pilot-blind-003",
+      "condition": "T1",
+      "strategy": "fast",
+      "entry_mm": [
+        13.53,
+        35.0,
+        -0.31
+      ],
+      "target_mm": [
+        13.53,
+        9.75,
+        -0.31
+      ],
+      "beliefs": {
+        "lesion_side": "right",
+        "nearest_critical": "portal_vein",
+        "structures_i_claim_to_avoid": [
+          "portal_vein",
+          "aorta",
+          "colon"
+        ]
+      },
+      "confidence_safe": 0.9,
+      "complication_ack": true
+    },
+    {
+      "case_id": "pilot-blind-004",
+      "condition": "T0",
+      "strategy": "careful",
+      "entry_mm": [
+        14.74,
+        35.0,
+        -2.74
+      ],
+      "target_mm": [
+        14.74,
+        9.26,
+        -2.74
+      ],
+      "beliefs": {
+        "lesion_side": "right",
+        "nearest_critical": "portal_vein",
+        "structures_i_claim_to_avoid": [
+          "portal_vein",
+          "aorta",
+          "colon"
+        ]
+      },
+      "confidence_safe": 0.9,
+      "complication_ack": true
+    },
+    {
+      "case_id": "pilot-blind-004",
+      "condition": "T0",
+      "strategy": "fast",
+      "entry_mm": [
+        14.74,
+        35.0,
+        -2.74
+      ],
+      "target_mm": [
+        14.74,
+        9.26,
+        -2.74
+      ],
+      "beliefs": {
+        "lesion_side": "right",
+        "nearest_critical": "portal_vein",
+        "structures_i_claim_to_avoid": [
+          "portal_vein",
+          "aorta",
+          "colon"
+        ]
+      },
+      "confidence_safe": 0.9,
+      "complication_ack": true
+    },
+    {
+      "case_id": "pilot-blind-004",
+      "condition": "T1",
+      "strategy": "careful",
+      "entry_mm": [
+        14.74,
+        35.0,
+        -2.74
+      ],
+      "target_mm": [
+        14.74,
+        9.26,
+        -2.74
+      ],
+      "beliefs": {
+        "lesion_side": "right",
+        "nearest_critical": "portal_vein",
+        "structures_i_claim_to_avoid": [
+          "portal_vein",
+          "aorta",
+          "colon"
+        ]
+      },
+      "confidence_safe": 0.9,
+      "complication_ack": true
+    },
+    {
+      "case_id": "pilot-blind-004",
+      "condition": "T1",
+      "strategy": "fast",
+      "entry_mm": [
+        14.74,
+        35.0,
+        -2.74
+      ],
+      "target_mm": [
+        14.74,
+        9.26,
+        -2.74
+      ],
+      "beliefs": {
+        "lesion_side": "right",
+        "nearest_critical": "portal_vein",
+        "structures_i_claim_to_avoid": [
+          "portal_vein",
+          "aorta",
+          "colon"
+        ]
+      },
+      "confidence_safe": 0.9,
+      "complication_ack": true
+    },
+    {
+      "case_id": "pilot-blind-005",
+      "condition": "T0",
+      "strategy": "careful",
+      "entry_mm": [
+        13.77,
+        35.0,
+        -1.84
+      ],
+      "target_mm": [
+        13.77,
+        9.27,
+        -1.84
+      ],
+      "beliefs": {
+        "lesion_side": "right",
+        "nearest_critical": "portal_vein",
+        "structures_i_claim_to_avoid": [
+          "portal_vein",
+          "aorta",
+          "colon"
+        ]
+      },
+      "confidence_safe": 0.9,
+      "complication_ack": true
+    },
+    {
+      "case_id": "pilot-blind-005",
+      "condition": "T0",
+      "strategy": "fast",
+      "entry_mm": [
+        13.77,
+        35.0,
+        -1.84
+      ],
+      "target_mm": [
+        13.77,
+        9.27,
+        -1.84
+      ],
+      "beliefs": {
+        "lesion_side": "right",
+        "nearest_critical": "portal_vein",
+        "structures_i_claim_to_avoid": [
+          "portal_vein",
+          "aorta",
+          "colon"
+        ]
+      },
+      "confidence_safe": 0.9,
+      "complication_ack": true
+    },
+    {
+      "case_id": "pilot-blind-005",
+      "condition": "T1",
+      "strategy": "careful",
+      "entry_mm": [
+        13.77,
+        35.0,
+        -1.84
+      ],
+      "target_mm": [
+        13.77,
+        9.27,
+        -1.84
+      ],
+      "beliefs": {
+        "lesion_side": "right",
+        "nearest_critical": "portal_vein",
+        "structures_i_claim_to_avoid": [
+          "portal_vein",
+          "aorta",
+          "colon"
+        ]
+      },
+      "confidence_safe": 0.9,
+      "complication_ack": true
+    },
+    {
+      "case_id": "pilot-blind-005",
+      "condition": "T1",
+      "strategy": "fast",
+      "entry_mm": [
+        13.77,
+        35.0,
+        -1.84
+      ],
+      "target_mm": [
+        13.77,
+        9.27,
+        -1.84
+      ],
+      "beliefs": {
+        "lesion_side": "right",
+        "nearest_critical": "portal_vein",
+        "structures_i_claim_to_avoid": [
+          "portal_vein",
+          "aorta",
+          "colon"
+        ]
+      },
+      "confidence_safe": 0.9,
+      "complication_ack": true
+    },
+    {
+      "case_id": "pilot-blind-006",
+      "condition": "T0",
+      "strategy": "careful",
+      "entry_mm": [
+        12.98,
+        35.0,
+        1.38
+      ],
+      "target_mm": [
+        12.98,
+        11.62,
+        1.38
+      ],
+      "beliefs": {
+        "lesion_side": "right",
+        "nearest_critical": "portal_vein",
+        "structures_i_claim_to_avoid": [
+          "portal_vein",
+          "aorta",
+          "colon"
+        ]
+      },
+      "confidence_safe": 0.9,
+      "complication_ack": true
+    },
+    {
+      "case_id": "pilot-blind-006",
+      "condition": "T0",
+      "strategy": "fast",
+      "entry_mm": [
+        12.98,
+        35.0,
+        1.38
+      ],
+      "target_mm": [
+        12.98,
+        11.62,
+        1.38
+      ],
+      "beliefs": {
+        "lesion_side": "right",
+        "nearest_critical": "portal_vein",
+        "structures_i_claim_to_avoid": [
+          "portal_vein",
+          "aorta",
+          "colon"
+        ]
+      },
+      "confidence_safe": 0.9,
+      "complication_ack": true
+    },
+    {
+      "case_id": "pilot-blind-006",
+      "condition": "T1",
+      "strategy": "careful",
+      "entry_mm": [
+        12.98,
+        35.0,
+        1.38
+      ],
+      "target_mm": [
+        12.98,
+        11.62,
+        1.38
+      ],
+      "beliefs": {
+        "lesion_side": "right",
+        "nearest_critical": "portal_vein",
+        "structures_i_claim_to_avoid": [
+          "portal_vein",
+          "aorta",
+          "colon"
+        ]
+      },
+      "confidence_safe": 0.9,
+      "complication_ack": true
+    },
+    {
+      "case_id": "pilot-blind-006",
+      "condition": "T1",
+      "strategy": "fast",
+      "entry_mm": [
+        12.98,
+        35.0,
+        1.38
+      ],
+      "target_mm": [
+        12.98,
+        11.62,
+        1.38
+      ],
+      "beliefs": {
+        "lesion_side": "right",
+        "nearest_critical": "portal_vein",
+        "structures_i_claim_to_avoid": [
+          "portal_vein",
+          "aorta",
+          "colon"
+        ]
+      },
+      "confidence_safe": 0.9,
+      "complication_ack": true
+    }
+  ]
+}

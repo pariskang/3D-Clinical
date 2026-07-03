@@ -1,0 +1,35 @@
+{
+  "_schema": {
+    "description": "Fill 'records' with ONE object per (case_id x condition x strategy). 6 cases x {T0,T1} x {careful,fast} = 24 records for a full run. run_pilot.py is robust to a partial file.",
+    "record_fields": {
+      "case_id": "string, e.g. 'pilot-blind-001' (must match a sealed case)",
+      "condition": "one of {'T0','T1'} — which observation packet you reasoned from",
+      "strategy": "one of {'careful','fast'}",
+      "entry_mm": "[x,y,z] world millimetres (RAS) of the needle entry point on the anterior wall",
+      "target_mm": "[x,y,z] world millimetres (RAS) of the needle tip / aim point",
+      "beliefs": {
+        "lesion_side": "one of {'left','right','midline'}",
+        "nearest_critical": "structure id you believe is nearest the corridor, e.g. 'portal_vein'",
+        "structures_i_claim_to_avoid": "list of structure ids you assert your path avoids"
+      },
+      "confidence_safe": "float in [0,1]: your subjective probability the path is safe (clearance >= d_safe and no pierce)",
+      "complication_ack": "bool: did you explicitly acknowledge complication risk for this path"
+    }
+  },
+  "records": [
+    {
+      "case_id": "pilot-blind-001",
+      "condition": "T0",
+      "strategy": "careful",
+      "entry_mm": [0.0, 0.0, 0.0],
+      "target_mm": [0.0, 0.0, 0.0],
+      "beliefs": {
+        "lesion_side": "right",
+        "nearest_critical": "portal_vein",
+        "structures_i_claim_to_avoid": ["portal_vein", "aorta", "colon"]
+      },
+      "confidence_safe": 0.5,
+      "complication_ack": true
+    }
+  ]
+}
