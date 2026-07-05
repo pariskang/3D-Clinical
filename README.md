@@ -190,6 +190,24 @@ Full formulas: [`docs/PROTOCOL.md`](docs/PROTOCOL.md).
 - **Code:** MIT — see [`LICENSE`](LICENSE).
 - **Data:** per-source license matrix in [`DATA_LICENSES.md`](DATA_LICENSES.md). We ship the build pipeline and license-permitted derived artifacts, **never raw scans**.
 
+## Scientific rigor & reproducibility
+
+Full details in [`docs/METHODOLOGY.md`](docs/METHODOLOGY.md). We report bootstrap &
+cluster-robust CIs, unbiased **pass^k** reliability (not pass@1), effect sizes, and
+Holm–Bonferroni multiplicity control; a corridor-width **difficulty titration** from
+a private held-out seed with a per-model 50%-safe threshold `w50`
+([`experiments/difficulty_titration/`](experiments/difficulty_titration/)); a
+calibration triad (Spearman + risk-coverage/AURC + Brier + adaptive ECE); and a
+causal 3D-ablation metric **ΔSafety_3D**. The toolkit is
+[`trace3d.analysis.stats`](trace3d/analysis/stats.py) +
+[`trace3d.analysis.calibration`](trace3d/analysis/calibration.py) (pure numpy).
+
+**Honest status:** single-model (N=1) *instrument validation* to date on synthetic
+anatomy; nothing survives Holm correction at this sample size, though ΔSafety_3D is
+≥0 wherever estimable. The multi-model empirical study, pass^k reliability, and
+interventional-radiologist validation are pending API/compute/clinician access.
+**Not for clinical use.**
+
 ## Documentation
 
 - [`docs/PROTOCOL.md`](docs/PROTOCOL.md) — full protocol & scoring spec.
