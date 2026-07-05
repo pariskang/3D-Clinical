@@ -1,0 +1,233 @@
+{
+  "frame": "RAS",
+  "spacing_mm": [
+    1.0,
+    1.0,
+    1.0
+  ],
+  "midline_x_mm": -0.5,
+  "nodes": [
+    {
+      "id": "body",
+      "ta_name": "body",
+      "centroid_mm": [
+        -0.29326935546621513,
+        -0.503786798080661,
+        -0.245623135780054
+      ],
+      "bbox_mm": [
+        [
+          -35.0,
+          -35.0,
+          -25.0
+        ],
+        [
+          35.0,
+          35.0,
+          25.0
+        ]
+      ],
+      "volume_mm3": 231330.0,
+      "side": "right",
+      "is_critical": false
+    },
+    {
+      "id": "liver",
+      "ta_name": "liver",
+      "centroid_mm": [
+        15.104295042766488,
+        4.806401177227997,
+        0.11579140991446835
+      ],
+      "bbox_mm": [
+        [
+          -1.0,
+          -9.0,
+          -12.0
+        ],
+        [
+          31.0,
+          19.0,
+          12.0
+        ]
+      ],
+      "volume_mm3": 10873.0,
+      "side": "right",
+      "is_critical": false
+    },
+    {
+      "id": "aorta",
+      "ta_name": "aorta",
+      "centroid_mm": [
+        -3.0,
+        -14.0,
+        0.0
+      ],
+      "bbox_mm": [
+        [
+          -6.0,
+          -17.0,
+          -22.0
+        ],
+        [
+          0.0,
+          -11.0,
+          22.0
+        ]
+      ],
+      "volume_mm3": 1305.0,
+      "side": "left",
+      "is_critical": true
+    },
+    {
+      "id": "portal_vein",
+      "ta_name": "portal_vein",
+      "centroid_mm": [
+        4.0,
+        -10.0,
+        0.0
+      ],
+      "bbox_mm": [
+        [
+          2.0,
+          -12.0,
+          -16.0
+        ],
+        [
+          6.0,
+          -8.0,
+          16.0
+        ]
+      ],
+      "volume_mm3": 693.0,
+      "side": "right",
+      "is_critical": true
+    },
+    {
+      "id": "lung_right",
+      "ta_name": "lung_right",
+      "centroid_mm": [
+        14.0,
+        -2.0,
+        20.0
+      ],
+      "bbox_mm": [
+        [
+          2.0,
+          -12.0,
+          12.0
+        ],
+        [
+          26.0,
+          8.0,
+          28.0
+        ]
+      ],
+      "volume_mm3": 4029.0,
+      "side": "right",
+      "is_critical": false
+    },
+    {
+      "id": "colon",
+      "ta_name": "colon",
+      "centroid_mm": [
+        -19.0,
+        10.0,
+        -2.0
+      ],
+      "bbox_mm": [
+        [
+          -28.0,
+          0.0,
+          -12.0
+        ],
+        [
+          -10.0,
+          20.0,
+          8.0
+        ]
+      ],
+      "volume_mm3": 8379.0,
+      "side": "left",
+      "is_critical": true
+    },
+    {
+      "id": "gallbladder",
+      "ta_name": "gallbladder",
+      "centroid_mm": [
+        8.0,
+        12.0,
+        -6.0
+      ],
+      "bbox_mm": [
+        [
+          4.0,
+          8.0,
+          -10.0
+        ],
+        [
+          12.0,
+          16.0,
+          -2.0
+        ]
+      ],
+      "volume_mm3": 257.0,
+      "side": "right",
+      "is_critical": false
+    },
+    {
+      "id": "lesion",
+      "ta_name": "lesion",
+      "centroid_mm": [
+        18.0,
+        10.0,
+        0.0
+      ],
+      "bbox_mm": [
+        [
+          15.0,
+          7.0,
+          -3.0
+        ],
+        [
+          21.0,
+          13.0,
+          3.0
+        ]
+      ],
+      "volume_mm3": 123.0,
+      "side": "right",
+      "is_critical": false
+    },
+    {
+      "id": "bowel_loop",
+      "ta_name": "bowel_loop",
+      "centroid_mm": [
+        19.19047619047619,
+        25.0,
+        0.0
+      ],
+      "bbox_mm": [
+        [
+          15.0,
+          21.0,
+          -4.0
+        ],
+        [
+          23.0,
+          29.0,
+          4.0
+        ]
+      ],
+      "volume_mm3": 357.0,
+      "side": "right",
+      "is_critical": false
+    }
+  ],
+  "edges": [],
+  "critical_structures": [
+    "aorta",
+    "portal_vein",
+    "colon"
+  ]
+}

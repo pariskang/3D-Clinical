@@ -1,0 +1,3720 @@
+{
+  "n_scenes": 48,
+  "n_bins": 8,
+  "bin_edges_mm": [
+    3.5,
+    4.5,
+    5.5,
+    6.5,
+    7.5,
+    8.5,
+    9.5,
+    10.5,
+    11.5
+  ],
+  "d_safe_mm": 3.0,
+  "private_seed": 20260705,
+  "boot_seed": 20260705,
+  "n_boot": 2000,
+  "sdf_vs_exact_validation": {
+    "paths": [
+      {
+        "scene_id": "titration-001",
+        "exact_mm": 3.574369791024016,
+        "sdf_mm": 3.5999798546344266,
+        "abs_diff_mm": 0.025610063610410627
+      },
+      {
+        "scene_id": "titration-002",
+        "exact_mm": 3.781336729608535,
+        "sdf_mm": 3.765212091799433,
+        "abs_diff_mm": 0.016124637809102005
+      },
+      {
+        "scene_id": "titration-003",
+        "exact_mm": 3.801021072557983,
+        "sdf_mm": 3.8570130056450798,
+        "abs_diff_mm": 0.0559919330870966
+      },
+      {
+        "scene_id": "titration-004",
+        "exact_mm": 4.291609307446474,
+        "sdf_mm": 4.2947156372955195,
+        "abs_diff_mm": 0.003106329849045686
+      },
+      {
+        "scene_id": "titration-005",
+        "exact_mm": 4.3193421279068,
+        "sdf_mm": 4.363208632401336,
+        "abs_diff_mm": 0.04386650449453633
+      },
+      {
+        "scene_id": "titration-006",
+        "exact_mm": 4.3193421279068,
+        "sdf_mm": 4.363208632401336,
+        "abs_diff_mm": 0.04386650449453633
+      }
+    ],
+    "max_abs_diff_mm": 0.0559919330870966,
+    "note": "fast SDF clearance vs exact execute_signature clearance on oracle paths"
+  },
+  "logistic_model": "P(safe|w) = 1 / (1 + exp(-b*(w - w50)))",
+  "per_agent": {
+    "oracle": {
+      "overall_safe_rate": 1.0,
+      "degenerate": true,
+      "w50_mm": -0.2542782310377552,
+      "w50_ci": {
+        "lo": -0.2672687619094551,
+        "hi": -0.21613518169948512
+      },
+      "slope_b": 2.242320186448252,
+      "slope_ci": {
+        "lo": 2.0481402317678503,
+        "hi": 2.376868193820234
+      },
+      "bin_safe_rates": [
+        {
+          "bin": 0,
+          "w_range_mm": [
+            3.5,
+            4.5
+          ],
+          "w_mean_mm": 4.014503526075102,
+          "n": 6,
+          "safe_rate": 1.0
+        },
+        {
+          "bin": 1,
+          "w_range_mm": [
+            4.5,
+            5.5
+          ],
+          "w_mean_mm": 5.233362078080504,
+          "n": 7,
+          "safe_rate": 1.0
+        },
+        {
+          "bin": 2,
+          "w_range_mm": [
+            5.5,
+            6.5
+          ],
+          "w_mean_mm": 5.840920441548741,
+          "n": 5,
+          "safe_rate": 1.0
+        },
+        {
+          "bin": 3,
+          "w_range_mm": [
+            6.5,
+            7.5
+          ],
+          "w_mean_mm": 6.685420634747615,
+          "n": 6,
+          "safe_rate": 1.0
+        },
+        {
+          "bin": 4,
+          "w_range_mm": [
+            7.5,
+            8.5
+          ],
+          "w_mean_mm": 8.008872527854189,
+          "n": 6,
+          "safe_rate": 1.0
+        },
+        {
+          "bin": 5,
+          "w_range_mm": [
+            8.5,
+            9.5
+          ],
+          "w_mean_mm": 8.993153243299812,
+          "n": 6,
+          "safe_rate": 1.0
+        },
+        {
+          "bin": 6,
+          "w_range_mm": [
+            9.5,
+            10.5
+          ],
+          "w_mean_mm": 9.751654794833255,
+          "n": 6,
+          "safe_rate": 1.0
+        },
+        {
+          "bin": 7,
+          "w_range_mm": [
+            10.5,
+            11.5
+          ],
+          "w_mean_mm": 10.76691296461665,
+          "n": 6,
+          "safe_rate": 1.0
+        }
+      ],
+      "records": [
+        {
+          "scene_id": "titration-001",
+          "w_mm": 3.574369791024016,
+          "entry_mm": [
+            30.0,
+            38.0,
+            -12.0
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": true,
+          "overall_min_clearance_mm": 3.574369791024016,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-002",
+          "w_mm": 3.781336729608535,
+          "entry_mm": [
+            6.0,
+            38.0,
+            -12.0
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": true,
+          "overall_min_clearance_mm": 3.781336729608535,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-003",
+          "w_mm": 3.801021072557983,
+          "entry_mm": [
+            30.0,
+            38.0,
+            -12.0
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": true,
+          "overall_min_clearance_mm": 3.801021072557983,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-004",
+          "w_mm": 4.291609307446474,
+          "entry_mm": [
+            6.0,
+            38.0,
+            12.0
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": true,
+          "overall_min_clearance_mm": 4.291609307446474,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-005",
+          "w_mm": 4.3193421279068,
+          "entry_mm": [
+            6.0,
+            38.0,
+            -12.0
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": true,
+          "overall_min_clearance_mm": 4.3193421279068,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-006",
+          "w_mm": 4.3193421279068,
+          "entry_mm": [
+            6.0,
+            38.0,
+            -12.0
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": true,
+          "overall_min_clearance_mm": 4.3193421279068,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-007",
+          "w_mm": 4.837663183255617,
+          "entry_mm": [
+            6.0,
+            38.0,
+            12.0
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": true,
+          "overall_min_clearance_mm": 4.837663183255617,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-008",
+          "w_mm": 4.974562157287454,
+          "entry_mm": [
+            6.0,
+            38.0,
+            -12.0
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": true,
+          "overall_min_clearance_mm": 4.974562157287454,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-009",
+          "w_mm": 5.040137406324044,
+          "entry_mm": [
+            6.0,
+            38.0,
+            12.0
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": true,
+          "overall_min_clearance_mm": 5.040137406324044,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-010",
+          "w_mm": 5.316827692940397,
+          "entry_mm": [
+            30.0,
+            38.0,
+            -12.0
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": true,
+          "overall_min_clearance_mm": 5.316827692940397,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-011",
+          "w_mm": 5.488114702252006,
+          "entry_mm": [
+            6.0,
+            38.0,
+            -12.0
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": true,
+          "overall_min_clearance_mm": 5.488114702252006,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-012",
+          "w_mm": 5.488114702252006,
+          "entry_mm": [
+            6.0,
+            38.0,
+            -12.0
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": true,
+          "overall_min_clearance_mm": 5.488114702252006,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-013",
+          "w_mm": 5.488114702252006,
+          "entry_mm": [
+            6.0,
+            38.0,
+            -12.0
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": true,
+          "overall_min_clearance_mm": 5.488114702252006,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-014",
+          "w_mm": 5.528757923720705,
+          "entry_mm": [
+            30.0,
+            38.0,
+            -12.0
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": true,
+          "overall_min_clearance_mm": 5.528757923720705,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-015",
+          "w_mm": 5.539545754317687,
+          "entry_mm": [
+            6.0,
+            38.0,
+            12.0
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": true,
+          "overall_min_clearance_mm": 5.539545754317687,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-016",
+          "w_mm": 5.874305293953248,
+          "entry_mm": [
+            6.0,
+            38.0,
+            -12.0
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": true,
+          "overall_min_clearance_mm": 5.874305293953248,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-017",
+          "w_mm": 6.04214057156627,
+          "entry_mm": [
+            6.0,
+            38.0,
+            -12.0
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": true,
+          "overall_min_clearance_mm": 6.04214057156627,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-018",
+          "w_mm": 6.219852664185793,
+          "entry_mm": [
+            6.0,
+            38.0,
+            -12.0
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": true,
+          "overall_min_clearance_mm": 6.219852664185793,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-019",
+          "w_mm": 6.5174850932164405,
+          "entry_mm": [
+            6.0,
+            38.0,
+            -12.0
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": true,
+          "overall_min_clearance_mm": 6.5174850932164405,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-020",
+          "w_mm": 6.5174850932164405,
+          "entry_mm": [
+            30.0,
+            38.0,
+            -12.0
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": true,
+          "overall_min_clearance_mm": 6.5174850932164405,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-021",
+          "w_mm": 6.5174850932164405,
+          "entry_mm": [
+            6.0,
+            38.0,
+            -12.0
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": true,
+          "overall_min_clearance_mm": 6.5174850932164405,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-022",
+          "w_mm": 6.565400034418337,
+          "entry_mm": [
+            6.0,
+            38.0,
+            12.0
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": true,
+          "overall_min_clearance_mm": 6.565400034418337,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-023",
+          "w_mm": 6.738173719534608,
+          "entry_mm": [
+            6.0,
+            38.0,
+            -12.0
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": true,
+          "overall_min_clearance_mm": 6.738173719534608,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-024",
+          "w_mm": 7.256494774883424,
+          "entry_mm": [
+            30.0,
+            38.0,
+            -12.0
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": true,
+          "overall_min_clearance_mm": 7.256494774883424,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-025",
+          "w_mm": 7.562673459217067,
+          "entry_mm": [
+            6.0,
+            38.0,
+            -12.0
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": true,
+          "overall_min_clearance_mm": 7.562673459217067,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-026",
+          "w_mm": 7.602042145115969,
+          "entry_mm": [
+            6.0,
+            38.0,
+            -12.0
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": true,
+          "overall_min_clearance_mm": 7.602042145115969,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-027",
+          "w_mm": 7.89294035595649,
+          "entry_mm": [
+            30.0,
+            38.0,
+            -12.0
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": true,
+          "overall_min_clearance_mm": 7.89294035595649,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-028",
+          "w_mm": 8.120363200464785,
+          "entry_mm": [
+            6.0,
+            38.0,
+            -12.0
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": true,
+          "overall_min_clearance_mm": 8.120363200464785,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-029",
+          "w_mm": 8.409305435673494,
+          "entry_mm": [
+            6.0,
+            38.0,
+            12.0
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": true,
+          "overall_min_clearance_mm": 8.409305435673494,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-030",
+          "w_mm": 8.46591057069733,
+          "entry_mm": [
+            30.0,
+            38.0,
+            -12.0
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": true,
+          "overall_min_clearance_mm": 8.46591057069733,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-031",
+          "w_mm": 8.58147953704815,
+          "entry_mm": [
+            6.0,
+            38.0,
+            -12.0
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": true,
+          "overall_min_clearance_mm": 8.58147953704815,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-032",
+          "w_mm": 8.58147953704815,
+          "entry_mm": [
+            6.0,
+            38.0,
+            -12.0
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": true,
+          "overall_min_clearance_mm": 8.58147953704815,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-033",
+          "w_mm": 9.098138238287275,
+          "entry_mm": [
+            6.0,
+            38.0,
+            -12.0
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": true,
+          "overall_min_clearance_mm": 9.098138238287275,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-034",
+          "w_mm": 9.098138238287275,
+          "entry_mm": [
+            30.0,
+            38.0,
+            -12.0
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": true,
+          "overall_min_clearance_mm": 9.098138238287275,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-035",
+          "w_mm": 9.157005311162417,
+          "entry_mm": [
+            6.0,
+            38.0,
+            -12.0
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": true,
+          "overall_min_clearance_mm": 9.157005311162417,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-036",
+          "w_mm": 9.442678597965601,
+          "entry_mm": [
+            6.0,
+            38.0,
+            -12.0
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": true,
+          "overall_min_clearance_mm": 9.442678597965601,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-037",
+          "w_mm": 9.502552681394961,
+          "entry_mm": [
+            30.0,
+            38.0,
+            12.0
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": true,
+          "overall_min_clearance_mm": 9.502552681394961,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-038",
+          "w_mm": 9.502552681394961,
+          "entry_mm": [
+            6.0,
+            38.0,
+            12.0
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": true,
+          "overall_min_clearance_mm": 9.502552681394961,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-039",
+          "w_mm": 9.614975881094546,
+          "entry_mm": [
+            6.0,
+            38.0,
+            -12.0
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": true,
+          "overall_min_clearance_mm": 9.614975881094546,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-040",
+          "w_mm": 9.675326366511234,
+          "entry_mm": [
+            6.0,
+            38.0,
+            -12.0
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": true,
+          "overall_min_clearance_mm": 9.675326366511234,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-041",
+          "w_mm": 10.020873736743779,
+          "entry_mm": [
+            6.0,
+            38.0,
+            -12.0
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": true,
+          "overall_min_clearance_mm": 10.020873736743779,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-042",
+          "w_mm": 10.19364742186005,
+          "entry_mm": [
+            30.0,
+            38.0,
+            -12.0
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": true,
+          "overall_min_clearance_mm": 10.19364742186005,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-043",
+          "w_mm": 10.649083766908161,
+          "entry_mm": [
+            30.0,
+            38.0,
+            -12.0
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": true,
+          "overall_min_clearance_mm": 10.649083766908161,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-044",
+          "w_mm": 10.649083766908161,
+          "entry_mm": [
+            6.0,
+            38.0,
+            -12.0
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": true,
+          "overall_min_clearance_mm": 10.649083766908161,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-045",
+          "w_mm": 10.649083766908161,
+          "entry_mm": [
+            6.0,
+            38.0,
+            -12.0
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": true,
+          "overall_min_clearance_mm": 10.649083766908161,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-046",
+          "w_mm": 10.711968477208867,
+          "entry_mm": [
+            6.0,
+            38.0,
+            -12.0
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": true,
+          "overall_min_clearance_mm": 10.711968477208867,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-047",
+          "w_mm": 10.711968477208867,
+          "entry_mm": [
+            30.0,
+            38.0,
+            -12.0
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": true,
+          "overall_min_clearance_mm": 10.711968477208867,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-048",
+          "w_mm": 11.230289532557682,
+          "entry_mm": [
+            30.0,
+            38.0,
+            -12.0
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": true,
+          "overall_min_clearance_mm": 11.230289532557682,
+          "target_hit": true
+        }
+      ]
+    },
+    "noisy_s3": {
+      "overall_safe_rate": 0.9791666666666666,
+      "degenerate": false,
+      "w50_mm": 3.6024213043193885,
+      "w50_ci": {
+        "lo": -0.2523972127043934,
+        "hi": 3.902123819302953
+      },
+      "slope_b": 7.2647933391707005,
+      "slope_ci": {
+        "lo": 2.04933024384182,
+        "hi": 10.786135268479834
+      },
+      "bin_safe_rates": [
+        {
+          "bin": 0,
+          "w_range_mm": [
+            3.5,
+            4.5
+          ],
+          "w_mean_mm": 4.014503526075102,
+          "n": 6,
+          "safe_rate": 0.8333333333333334
+        },
+        {
+          "bin": 1,
+          "w_range_mm": [
+            4.5,
+            5.5
+          ],
+          "w_mean_mm": 5.233362078080504,
+          "n": 7,
+          "safe_rate": 1.0
+        },
+        {
+          "bin": 2,
+          "w_range_mm": [
+            5.5,
+            6.5
+          ],
+          "w_mean_mm": 5.840920441548741,
+          "n": 5,
+          "safe_rate": 1.0
+        },
+        {
+          "bin": 3,
+          "w_range_mm": [
+            6.5,
+            7.5
+          ],
+          "w_mean_mm": 6.685420634747615,
+          "n": 6,
+          "safe_rate": 1.0
+        },
+        {
+          "bin": 4,
+          "w_range_mm": [
+            7.5,
+            8.5
+          ],
+          "w_mean_mm": 8.008872527854189,
+          "n": 6,
+          "safe_rate": 1.0
+        },
+        {
+          "bin": 5,
+          "w_range_mm": [
+            8.5,
+            9.5
+          ],
+          "w_mean_mm": 8.993153243299812,
+          "n": 6,
+          "safe_rate": 1.0
+        },
+        {
+          "bin": 6,
+          "w_range_mm": [
+            9.5,
+            10.5
+          ],
+          "w_mean_mm": 9.751654794833255,
+          "n": 6,
+          "safe_rate": 1.0
+        },
+        {
+          "bin": 7,
+          "w_range_mm": [
+            10.5,
+            11.5
+          ],
+          "w_mean_mm": 10.76691296461665,
+          "n": 6,
+          "safe_rate": 1.0
+        }
+      ],
+      "records": [
+        {
+          "scene_id": "titration-001",
+          "w_mm": 3.574369791024016,
+          "entry_mm": [
+            24.421953379289555,
+            38.0,
+            -8.967023493527517
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": false,
+          "overall_min_clearance_mm": 1.4168705962435848,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-002",
+          "w_mm": 3.781336729608535,
+          "entry_mm": [
+            9.501995685029794,
+            38.0,
+            -15.18436162532241
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": true,
+          "overall_min_clearance_mm": 3.742822370263731,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-003",
+          "w_mm": 3.801021072557983,
+          "entry_mm": [
+            28.383189372222173,
+            38.0,
+            -16.8463000302402
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": true,
+          "overall_min_clearance_mm": 4.470650842659713,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-004",
+          "w_mm": 4.291609307446474,
+          "entry_mm": [
+            4.307467294633769,
+            38.0,
+            14.708632170982394
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": true,
+          "overall_min_clearance_mm": 5.284494992791824,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-005",
+          "w_mm": 4.3193421279068,
+          "entry_mm": [
+            4.932475541328307,
+            38.0,
+            -14.554019247856047
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": true,
+          "overall_min_clearance_mm": 5.131593437939353,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-006",
+          "w_mm": 4.3193421279068,
+          "entry_mm": [
+            5.1200946478805385,
+            38.0,
+            -8.854861894506097
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": true,
+          "overall_min_clearance_mm": 3.9274685194698717,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-007",
+          "w_mm": 4.837663183255617,
+          "entry_mm": [
+            5.378172516025073,
+            38.0,
+            14.60512053219658
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": true,
+          "overall_min_clearance_mm": 5.621620796876385,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-008",
+          "w_mm": 4.974562157287454,
+          "entry_mm": [
+            4.126805055439824,
+            38.0,
+            -18.288891089060236
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": true,
+          "overall_min_clearance_mm": 6.555385989186117,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-009",
+          "w_mm": 5.040137406324044,
+          "entry_mm": [
+            5.534995381417572,
+            38.0,
+            13.14519981999997
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": true,
+          "overall_min_clearance_mm": 5.369012236941932,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-010",
+          "w_mm": 5.316827692940397,
+          "entry_mm": [
+            27.966642889507,
+            38.0,
+            -11.233026320911113
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": true,
+          "overall_min_clearance_mm": 4.442597663942822,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-011",
+          "w_mm": 5.488114702252006,
+          "entry_mm": [
+            -0.032649055197255805,
+            38.0,
+            -12.885486042583683
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": true,
+          "overall_min_clearance_mm": 6.966010387588379,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-012",
+          "w_mm": 5.488114702252006,
+          "entry_mm": [
+            7.340144051007783,
+            38.0,
+            -9.257630615987047
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": true,
+          "overall_min_clearance_mm": 4.404803220167441,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-013",
+          "w_mm": 5.488114702252006,
+          "entry_mm": [
+            13.00812863150842,
+            38.0,
+            -10.071823007457319
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": true,
+          "overall_min_clearance_mm": 3.140806401736169,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-014",
+          "w_mm": 5.528757923720705,
+          "entry_mm": [
+            33.00629859918673,
+            38.0,
+            -9.983133281743394
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": true,
+          "overall_min_clearance_mm": 5.877163000493392,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-015",
+          "w_mm": 5.539545754317687,
+          "entry_mm": [
+            10.198780295568527,
+            38.0,
+            13.672578347235175
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": true,
+          "overall_min_clearance_mm": 4.688540498585716,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-016",
+          "w_mm": 5.874305293953248,
+          "entry_mm": [
+            7.974495068841664,
+            38.0,
+            -15.756535935460834
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": true,
+          "overall_min_clearance_mm": 6.372178319078866,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-017",
+          "w_mm": 6.04214057156627,
+          "entry_mm": [
+            0.7196843671359883,
+            38.0,
+            -14.581387735810017
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": true,
+          "overall_min_clearance_mm": 8.121154314030377,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-018",
+          "w_mm": 6.219852664185793,
+          "entry_mm": [
+            7.710375120571252,
+            38.0,
+            -10.533869927913218
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": true,
+          "overall_min_clearance_mm": 5.0893045789898945,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-019",
+          "w_mm": 6.5174850932164405,
+          "entry_mm": [
+            5.389480688432156,
+            38.0,
+            -21.24522363977563
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": true,
+          "overall_min_clearance_mm": 8.633021201032394,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-020",
+          "w_mm": 6.5174850932164405,
+          "entry_mm": [
+            28.054477746316127,
+            38.0,
+            -10.5312787959673
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": true,
+          "overall_min_clearance_mm": 5.524947841663083,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-021",
+          "w_mm": 6.5174850932164405,
+          "entry_mm": [
+            0.6328911204838317,
+            38.0,
+            -15.56603160002154
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": true,
+          "overall_min_clearance_mm": 8.51535081389799,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-022",
+          "w_mm": 6.565400034418337,
+          "entry_mm": [
+            3.4643736407913934,
+            38.0,
+            6.1093171355378555
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": true,
+          "overall_min_clearance_mm": 6.242079909151439,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-023",
+          "w_mm": 6.738173719534608,
+          "entry_mm": [
+            13.771800964954936,
+            38.0,
+            -11.320024303587335
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": true,
+          "overall_min_clearance_mm": 4.1753990068931675,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-024",
+          "w_mm": 7.256494774883424,
+          "entry_mm": [
+            32.581481461947185,
+            38.0,
+            -11.406547291226323
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": true,
+          "overall_min_clearance_mm": 8.085508696614083,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-025",
+          "w_mm": 7.562673459217067,
+          "entry_mm": [
+            8.11218037411276,
+            38.0,
+            -8.948431256928377
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": true,
+          "overall_min_clearance_mm": 5.834276761784203,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-026",
+          "w_mm": 7.602042145115969,
+          "entry_mm": [
+            6.53719250293417,
+            38.0,
+            -12.04876764799989
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": true,
+          "overall_min_clearance_mm": 7.465770536672394,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-027",
+          "w_mm": 7.89294035595649,
+          "entry_mm": [
+            31.5684162819693,
+            38.0,
+            -7.253975241160656
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": true,
+          "overall_min_clearance_mm": 6.9768142256986065,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-028",
+          "w_mm": 8.120363200464785,
+          "entry_mm": [
+            9.240572243763019,
+            38.0,
+            -8.63633542327629
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": true,
+          "overall_min_clearance_mm": 5.94517593405424,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-029",
+          "w_mm": 8.409305435673494,
+          "entry_mm": [
+            8.378853672484475,
+            38.0,
+            18.206780127749603
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": true,
+          "overall_min_clearance_mm": 9.773205686188412,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-030",
+          "w_mm": 8.46591057069733,
+          "entry_mm": [
+            28.465338642637036,
+            38.0,
+            -13.735098458905606
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": true,
+          "overall_min_clearance_mm": 8.645721985627576,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-031",
+          "w_mm": 8.58147953704815,
+          "entry_mm": [
+            7.725290215689332,
+            38.0,
+            -10.18835062255254
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": true,
+          "overall_min_clearance_mm": 7.335068574246587,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-032",
+          "w_mm": 8.58147953704815,
+          "entry_mm": [
+            6.493684404797433,
+            38.0,
+            -13.933689015484076
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": true,
+          "overall_min_clearance_mm": 9.028325110422582,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-033",
+          "w_mm": 9.098138238287275,
+          "entry_mm": [
+            7.315065473178378,
+            38.0,
+            -13.117846689560286
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": true,
+          "overall_min_clearance_mm": 9.005910481106945,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-034",
+          "w_mm": 9.098138238287275,
+          "entry_mm": [
+            33.37605584804737,
+            38.0,
+            -12.840513769430448
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": true,
+          "overall_min_clearance_mm": 10.590098506665159,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-035",
+          "w_mm": 9.157005311162417,
+          "entry_mm": [
+            8.66029971857531,
+            38.0,
+            -8.511609112354146
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": true,
+          "overall_min_clearance_mm": 6.93964195943179,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-036",
+          "w_mm": 9.442678597965601,
+          "entry_mm": [
+            6.25200355546465,
+            38.0,
+            -13.349154277140629
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": true,
+          "overall_min_clearance_mm": 9.861851064561682,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-037",
+          "w_mm": 9.502552681394961,
+          "entry_mm": [
+            30.70234755549957,
+            38.0,
+            13.882638738827158
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": true,
+          "overall_min_clearance_mm": 10.484444868249762,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-038",
+          "w_mm": 9.502552681394961,
+          "entry_mm": [
+            3.8831964704308484,
+            38.0,
+            14.785345177859707
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": true,
+          "overall_min_clearance_mm": 11.2785000736806,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-039",
+          "w_mm": 9.614975881094546,
+          "entry_mm": [
+            -0.8043017759901705,
+            38.0,
+            -11.37405432171737
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": true,
+          "overall_min_clearance_mm": 11.890308176664854,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-040",
+          "w_mm": 9.675326366511234,
+          "entry_mm": [
+            6.353825974557465,
+            38.0,
+            -13.206008493155997
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": true,
+          "overall_min_clearance_mm": 9.984686555972814,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-041",
+          "w_mm": 10.020873736743779,
+          "entry_mm": [
+            3.6818491690756985,
+            38.0,
+            -16.86325049190112
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": true,
+          "overall_min_clearance_mm": 12.56557400245327,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-042",
+          "w_mm": 10.19364742186005,
+          "entry_mm": [
+            31.118837244874094,
+            38.0,
+            -10.007429919993523
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": true,
+          "overall_min_clearance_mm": 9.96353581671281,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-043",
+          "w_mm": 10.649083766908161,
+          "entry_mm": [
+            27.85221194923972,
+            38.0,
+            -14.071177811326615
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": true,
+          "overall_min_clearance_mm": 10.669726716477758,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-044",
+          "w_mm": 10.649083766908161,
+          "entry_mm": [
+            6.267412229194549,
+            38.0,
+            -12.106771969051811
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": true,
+          "overall_min_clearance_mm": 10.5746425140099,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-045",
+          "w_mm": 10.649083766908161,
+          "entry_mm": [
+            2.7363601530422246,
+            38.0,
+            -9.97024515494039
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": true,
+          "overall_min_clearance_mm": 11.20026438762586,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-046",
+          "w_mm": 10.711968477208867,
+          "entry_mm": [
+            8.321127945937032,
+            38.0,
+            -9.944228740988763
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": true,
+          "overall_min_clearance_mm": 8.946370227401578,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-047",
+          "w_mm": 10.711968477208867,
+          "entry_mm": [
+            30.617598550562064,
+            38.0,
+            -18.63669891245263
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": true,
+          "overall_min_clearance_mm": 13.149462067374929,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-048",
+          "w_mm": 11.230289532557682,
+          "entry_mm": [
+            27.124575611220965,
+            38.0,
+            -11.828941931979724
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": true,
+          "overall_min_clearance_mm": 9.975513029790836,
+          "target_hit": true
+        }
+      ]
+    },
+    "noisy_s6": {
+      "overall_safe_rate": 0.9791666666666666,
+      "degenerate": false,
+      "w50_mm": 3.405920970637115,
+      "w50_ci": {
+        "lo": -0.2644104615907506,
+        "hi": 4.012990254544579
+      },
+      "slope_b": 3.2555513239804146,
+      "slope_ci": {
+        "lo": 2.0117036954326633,
+        "hi": 7.951705763952867
+      },
+      "bin_safe_rates": [
+        {
+          "bin": 0,
+          "w_range_mm": [
+            3.5,
+            4.5
+          ],
+          "w_mean_mm": 4.014503526075102,
+          "n": 6,
+          "safe_rate": 0.8333333333333334
+        },
+        {
+          "bin": 1,
+          "w_range_mm": [
+            4.5,
+            5.5
+          ],
+          "w_mean_mm": 5.233362078080504,
+          "n": 7,
+          "safe_rate": 1.0
+        },
+        {
+          "bin": 2,
+          "w_range_mm": [
+            5.5,
+            6.5
+          ],
+          "w_mean_mm": 5.840920441548741,
+          "n": 5,
+          "safe_rate": 1.0
+        },
+        {
+          "bin": 3,
+          "w_range_mm": [
+            6.5,
+            7.5
+          ],
+          "w_mean_mm": 6.685420634747615,
+          "n": 6,
+          "safe_rate": 1.0
+        },
+        {
+          "bin": 4,
+          "w_range_mm": [
+            7.5,
+            8.5
+          ],
+          "w_mean_mm": 8.008872527854189,
+          "n": 6,
+          "safe_rate": 1.0
+        },
+        {
+          "bin": 5,
+          "w_range_mm": [
+            8.5,
+            9.5
+          ],
+          "w_mean_mm": 8.993153243299812,
+          "n": 6,
+          "safe_rate": 1.0
+        },
+        {
+          "bin": 6,
+          "w_range_mm": [
+            9.5,
+            10.5
+          ],
+          "w_mean_mm": 9.751654794833255,
+          "n": 6,
+          "safe_rate": 1.0
+        },
+        {
+          "bin": 7,
+          "w_range_mm": [
+            10.5,
+            11.5
+          ],
+          "w_mean_mm": 10.76691296461665,
+          "n": 6,
+          "safe_rate": 1.0
+        }
+      ],
+      "records": [
+        {
+          "scene_id": "titration-001",
+          "w_mm": 3.574369791024016,
+          "entry_mm": [
+            29.77022404700656,
+            38.0,
+            -9.425930840679737
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": true,
+          "overall_min_clearance_mm": 3.0180615594875673,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-002",
+          "w_mm": 3.781336729608535,
+          "entry_mm": [
+            17.882172754168526,
+            38.0,
+            -11.615628586955644
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": false,
+          "overall_min_clearance_mm": 1.6707764245634764,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-003",
+          "w_mm": 3.801021072557983,
+          "entry_mm": [
+            36.54396792846446,
+            38.0,
+            -6.665049224365363
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": true,
+          "overall_min_clearance_mm": 4.522759347125286,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-004",
+          "w_mm": 4.291609307446474,
+          "entry_mm": [
+            4.396955576466426,
+            38.0,
+            10.71234990837118
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": true,
+          "overall_min_clearance_mm": 4.315618657936672,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-005",
+          "w_mm": 4.3193421279068,
+          "entry_mm": [
+            -14.089898862830747,
+            38.0,
+            -16.702342230667714
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": true,
+          "overall_min_clearance_mm": 8.454353311023116,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-006",
+          "w_mm": 4.3193421279068,
+          "entry_mm": [
+            14.739822873203057,
+            38.0,
+            -14.327382668214469
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": true,
+          "overall_min_clearance_mm": 3.5141720159499537,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-007",
+          "w_mm": 4.837663183255617,
+          "entry_mm": [
+            -0.5030244620943485,
+            38.0,
+            22.1884384227858
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": true,
+          "overall_min_clearance_mm": 7.837309067707466,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-008",
+          "w_mm": 4.974562157287454,
+          "entry_mm": [
+            2.9878787892540855,
+            38.0,
+            -3.4772235353173944
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": true,
+          "overall_min_clearance_mm": 4.873535540701378,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-009",
+          "w_mm": 5.040137406324044,
+          "entry_mm": [
+            1.1110318107554544,
+            38.0,
+            10.437226859064417
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": true,
+          "overall_min_clearance_mm": 6.20824198096239,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-010",
+          "w_mm": 5.316827692940397,
+          "entry_mm": [
+            25.96409825052388,
+            38.0,
+            -10.836450391923917
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": true,
+          "overall_min_clearance_mm": 3.6841428372899525,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-011",
+          "w_mm": 5.488114702252006,
+          "entry_mm": [
+            2.8053690761450647,
+            38.0,
+            -13.846115646189329
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": true,
+          "overall_min_clearance_mm": 6.555081765780419,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-012",
+          "w_mm": 5.488114702252006,
+          "entry_mm": [
+            3.570233142090679,
+            38.0,
+            -17.646030437647994
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": true,
+          "overall_min_clearance_mm": 7.004389708295126,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-013",
+          "w_mm": 5.488114702252006,
+          "entry_mm": [
+            1.8033037386770756,
+            38.0,
+            -14.790673104119957
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": true,
+          "overall_min_clearance_mm": 7.036330179884792,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-014",
+          "w_mm": 5.528757923720705,
+          "entry_mm": [
+            40.13135199337415,
+            38.0,
+            -3.309233611471214
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": true,
+          "overall_min_clearance_mm": 7.27670203726891,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-015",
+          "w_mm": 5.539545754317687,
+          "entry_mm": [
+            8.083775128651796,
+            38.0,
+            11.716325605996223
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": true,
+          "overall_min_clearance_mm": 4.782557534420178,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-016",
+          "w_mm": 5.874305293953248,
+          "entry_mm": [
+            14.615048907439936,
+            38.0,
+            -22.25369349468031
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": true,
+          "overall_min_clearance_mm": 7.346437252813197,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-017",
+          "w_mm": 6.04214057156627,
+          "entry_mm": [
+            -6.903670120961134,
+            38.0,
+            -8.516108666652315
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": true,
+          "overall_min_clearance_mm": 9.339314677126373,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-018",
+          "w_mm": 6.219852664185793,
+          "entry_mm": [
+            10.950659979897088,
+            38.0,
+            -12.285556491879294
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": true,
+          "overall_min_clearance_mm": 4.921024373797532,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-019",
+          "w_mm": 6.5174850932164405,
+          "entry_mm": [
+            11.756932471927044,
+            38.0,
+            -21.63752028718125
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": true,
+          "overall_min_clearance_mm": 7.923018938339098,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-020",
+          "w_mm": 6.5174850932164405,
+          "entry_mm": [
+            28.246538370058268,
+            38.0,
+            -9.180088505448133
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": true,
+          "overall_min_clearance_mm": 5.254178782195638,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-021",
+          "w_mm": 6.5174850932164405,
+          "entry_mm": [
+            -0.31160265303342793,
+            38.0,
+            -17.968785121426638
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": true,
+          "overall_min_clearance_mm": 9.090770831793941,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-022",
+          "w_mm": 6.565400034418337,
+          "entry_mm": [
+            9.212901194222567,
+            38.0,
+            9.639094867112432
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": true,
+          "overall_min_clearance_mm": 5.053768189416266,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-023",
+          "w_mm": 6.738173719534608,
+          "entry_mm": [
+            14.67170009559952,
+            38.0,
+            -17.026389600383727
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": true,
+          "overall_min_clearance_mm": 7.036919607965358,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-024",
+          "w_mm": 7.256494774883424,
+          "entry_mm": [
+            36.312533345677565,
+            38.0,
+            -18.167400964073202
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": true,
+          "overall_min_clearance_mm": 11.10847702365232,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-025",
+          "w_mm": 7.562673459217067,
+          "entry_mm": [
+            15.324455928564213,
+            38.0,
+            -10.779425848456018
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": true,
+          "overall_min_clearance_mm": 3.8869321553032576,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-026",
+          "w_mm": 7.602042145115969,
+          "entry_mm": [
+            5.655673233952288,
+            38.0,
+            -11.489457103173304
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": true,
+          "overall_min_clearance_mm": 7.560331197931772,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-027",
+          "w_mm": 7.89294035595649,
+          "entry_mm": [
+            28.107611769677018,
+            38.0,
+            -11.271688481052093
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": true,
+          "overall_min_clearance_mm": 6.86827729435499,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-028",
+          "w_mm": 8.120363200464785,
+          "entry_mm": [
+            7.099791982709457,
+            38.0,
+            -7.049229346747639
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": true,
+          "overall_min_clearance_mm": 6.323355808710938,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-029",
+          "w_mm": 8.409305435673494,
+          "entry_mm": [
+            14.708532388616636,
+            38.0,
+            22.808444565627667
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": true,
+          "overall_min_clearance_mm": 10.304015204856292,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-030",
+          "w_mm": 8.46591057069733,
+          "entry_mm": [
+            30.038709398175634,
+            38.0,
+            -14.053971723274916
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": true,
+          "overall_min_clearance_mm": 9.228617857128967,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-031",
+          "w_mm": 8.58147953704815,
+          "entry_mm": [
+            6.918029344885671,
+            38.0,
+            -12.465485804483743
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": true,
+          "overall_min_clearance_mm": 8.400572068672588,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-032",
+          "w_mm": 8.58147953704815,
+          "entry_mm": [
+            17.07167793033654,
+            38.0,
+            -19.693690866746437
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": true,
+          "overall_min_clearance_mm": 9.173913195323863,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-033",
+          "w_mm": 9.098138238287275,
+          "entry_mm": [
+            7.968562306170838,
+            38.0,
+            -19.3023042099762
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": true,
+          "overall_min_clearance_mm": 11.118219988793754,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-034",
+          "w_mm": 9.098138238287275,
+          "entry_mm": [
+            27.24767005100241,
+            38.0,
+            -18.86824095965494
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": true,
+          "overall_min_clearance_mm": 10.81644523647149,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-035",
+          "w_mm": 9.157005311162417,
+          "entry_mm": [
+            3.5012184619173707,
+            38.0,
+            -17.587251082071553
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": true,
+          "overall_min_clearance_mm": 11.414258792784182,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-036",
+          "w_mm": 9.442678597965601,
+          "entry_mm": [
+            7.515049768832352,
+            38.0,
+            -16.2479582187654
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": true,
+          "overall_min_clearance_mm": 10.57914754333047,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-037",
+          "w_mm": 9.502552681394961,
+          "entry_mm": [
+            32.68146881153967,
+            38.0,
+            17.988975975007158
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": true,
+          "overall_min_clearance_mm": 12.277661204950181,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-038",
+          "w_mm": 9.502552681394961,
+          "entry_mm": [
+            8.257306887668904,
+            38.0,
+            16.869025420423704
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": true,
+          "overall_min_clearance_mm": 10.917211228544568,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-039",
+          "w_mm": 9.614975881094546,
+          "entry_mm": [
+            13.06739742032352,
+            38.0,
+            -25.781243249584104
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": true,
+          "overall_min_clearance_mm": 12.934785479057545,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-040",
+          "w_mm": 9.675326366511234,
+          "entry_mm": [
+            11.191741462306265,
+            38.0,
+            -2.26663786844321
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": true,
+          "overall_min_clearance_mm": 3.6779888846807647,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-041",
+          "w_mm": 10.020873736743779,
+          "entry_mm": [
+            9.021643112991484,
+            38.0,
+            -19.783409032235355
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": true,
+          "overall_min_clearance_mm": 12.334346709835083,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-042",
+          "w_mm": 10.19364742186005,
+          "entry_mm": [
+            29.34270871659066,
+            38.0,
+            -22.13908404442582
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": true,
+          "overall_min_clearance_mm": 13.289961681826613,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-043",
+          "w_mm": 10.649083766908161,
+          "entry_mm": [
+            22.56897493434816,
+            38.0,
+            -6.381797456295415
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": true,
+          "overall_min_clearance_mm": 4.3655979290598115,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-044",
+          "w_mm": 10.649083766908161,
+          "entry_mm": [
+            12.241095325947839,
+            38.0,
+            -2.4270871006425185
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": true,
+          "overall_min_clearance_mm": 3.728920374106986,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-045",
+          "w_mm": 10.649083766908161,
+          "entry_mm": [
+            7.046549203479492,
+            38.0,
+            -7.22880486121586
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": true,
+          "overall_min_clearance_mm": 8.179783370786874,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-046",
+          "w_mm": 10.711968477208867,
+          "entry_mm": [
+            5.112660566787535,
+            38.0,
+            -3.1714642654020064
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": true,
+          "overall_min_clearance_mm": 8.788408291018358,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-047",
+          "w_mm": 10.711968477208867,
+          "entry_mm": [
+            15.004303570480861,
+            38.0,
+            -23.940848904841328
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": true,
+          "overall_min_clearance_mm": 13.435069824755585,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-048",
+          "w_mm": 11.230289532557682,
+          "entry_mm": [
+            25.89530451840311,
+            38.0,
+            -10.729350092674604
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": true,
+          "overall_min_clearance_mm": 8.935105331346303,
+          "target_hit": true
+        }
+      ]
+    },
+    "naive_straight": {
+      "overall_safe_rate": 0.0,
+      "degenerate": true,
+      "w50_mm": -0.2542782310379848,
+      "w50_ci": {
+        "lo": -0.2672687619096505,
+        "hi": -0.21613518169937143
+      },
+      "slope_b": -2.242320186447704,
+      "slope_ci": {
+        "lo": -2.376868193820959,
+        "hi": -2.0481402317671744
+      },
+      "bin_safe_rates": [
+        {
+          "bin": 0,
+          "w_range_mm": [
+            3.5,
+            4.5
+          ],
+          "w_mean_mm": 4.014503526075102,
+          "n": 6,
+          "safe_rate": 0.0
+        },
+        {
+          "bin": 1,
+          "w_range_mm": [
+            4.5,
+            5.5
+          ],
+          "w_mean_mm": 5.233362078080504,
+          "n": 7,
+          "safe_rate": 0.0
+        },
+        {
+          "bin": 2,
+          "w_range_mm": [
+            5.5,
+            6.5
+          ],
+          "w_mean_mm": 5.840920441548741,
+          "n": 5,
+          "safe_rate": 0.0
+        },
+        {
+          "bin": 3,
+          "w_range_mm": [
+            6.5,
+            7.5
+          ],
+          "w_mean_mm": 6.685420634747615,
+          "n": 6,
+          "safe_rate": 0.0
+        },
+        {
+          "bin": 4,
+          "w_range_mm": [
+            7.5,
+            8.5
+          ],
+          "w_mean_mm": 8.008872527854189,
+          "n": 6,
+          "safe_rate": 0.0
+        },
+        {
+          "bin": 5,
+          "w_range_mm": [
+            8.5,
+            9.5
+          ],
+          "w_mean_mm": 8.993153243299812,
+          "n": 6,
+          "safe_rate": 0.0
+        },
+        {
+          "bin": 6,
+          "w_range_mm": [
+            9.5,
+            10.5
+          ],
+          "w_mean_mm": 9.751654794833255,
+          "n": 6,
+          "safe_rate": 0.0
+        },
+        {
+          "bin": 7,
+          "w_range_mm": [
+            10.5,
+            11.5
+          ],
+          "w_mean_mm": 10.76691296461665,
+          "n": 6,
+          "safe_rate": 0.0
+        }
+      ],
+      "records": [
+        {
+          "scene_id": "titration-001",
+          "w_mm": 3.574369791024016,
+          "entry_mm": [
+            18.0,
+            38.0,
+            0.0
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": false,
+          "overall_min_clearance_mm": 0.0,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-002",
+          "w_mm": 3.781336729608535,
+          "entry_mm": [
+            18.0,
+            38.0,
+            0.0
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": false,
+          "overall_min_clearance_mm": 0.0,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-003",
+          "w_mm": 3.801021072557983,
+          "entry_mm": [
+            18.0,
+            38.0,
+            0.0
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": false,
+          "overall_min_clearance_mm": 0.0,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-004",
+          "w_mm": 4.291609307446474,
+          "entry_mm": [
+            18.0,
+            38.0,
+            0.0
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": false,
+          "overall_min_clearance_mm": 0.0,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-005",
+          "w_mm": 4.3193421279068,
+          "entry_mm": [
+            18.0,
+            38.0,
+            0.0
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": false,
+          "overall_min_clearance_mm": 0.0,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-006",
+          "w_mm": 4.3193421279068,
+          "entry_mm": [
+            18.0,
+            38.0,
+            0.0
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": false,
+          "overall_min_clearance_mm": 0.0,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-007",
+          "w_mm": 4.837663183255617,
+          "entry_mm": [
+            18.0,
+            38.0,
+            0.0
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": false,
+          "overall_min_clearance_mm": 0.0,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-008",
+          "w_mm": 4.974562157287454,
+          "entry_mm": [
+            18.0,
+            38.0,
+            0.0
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": false,
+          "overall_min_clearance_mm": 0.0,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-009",
+          "w_mm": 5.040137406324044,
+          "entry_mm": [
+            18.0,
+            38.0,
+            0.0
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": false,
+          "overall_min_clearance_mm": 0.0,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-010",
+          "w_mm": 5.316827692940397,
+          "entry_mm": [
+            18.0,
+            38.0,
+            0.0
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": false,
+          "overall_min_clearance_mm": 0.0,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-011",
+          "w_mm": 5.488114702252006,
+          "entry_mm": [
+            18.0,
+            38.0,
+            0.0
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": false,
+          "overall_min_clearance_mm": 0.0,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-012",
+          "w_mm": 5.488114702252006,
+          "entry_mm": [
+            18.0,
+            38.0,
+            0.0
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": false,
+          "overall_min_clearance_mm": 0.0,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-013",
+          "w_mm": 5.488114702252006,
+          "entry_mm": [
+            18.0,
+            38.0,
+            0.0
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": false,
+          "overall_min_clearance_mm": 0.0,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-014",
+          "w_mm": 5.528757923720705,
+          "entry_mm": [
+            18.0,
+            38.0,
+            0.0
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": false,
+          "overall_min_clearance_mm": 0.0,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-015",
+          "w_mm": 5.539545754317687,
+          "entry_mm": [
+            18.0,
+            38.0,
+            0.0
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": false,
+          "overall_min_clearance_mm": 0.0,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-016",
+          "w_mm": 5.874305293953248,
+          "entry_mm": [
+            18.0,
+            38.0,
+            0.0
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": false,
+          "overall_min_clearance_mm": 0.0,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-017",
+          "w_mm": 6.04214057156627,
+          "entry_mm": [
+            18.0,
+            38.0,
+            0.0
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": false,
+          "overall_min_clearance_mm": 0.0,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-018",
+          "w_mm": 6.219852664185793,
+          "entry_mm": [
+            18.0,
+            38.0,
+            0.0
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": false,
+          "overall_min_clearance_mm": 0.0,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-019",
+          "w_mm": 6.5174850932164405,
+          "entry_mm": [
+            18.0,
+            38.0,
+            0.0
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": false,
+          "overall_min_clearance_mm": 0.0,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-020",
+          "w_mm": 6.5174850932164405,
+          "entry_mm": [
+            18.0,
+            38.0,
+            0.0
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": false,
+          "overall_min_clearance_mm": 0.0,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-021",
+          "w_mm": 6.5174850932164405,
+          "entry_mm": [
+            18.0,
+            38.0,
+            0.0
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": false,
+          "overall_min_clearance_mm": 0.0,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-022",
+          "w_mm": 6.565400034418337,
+          "entry_mm": [
+            18.0,
+            38.0,
+            0.0
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": false,
+          "overall_min_clearance_mm": 0.0,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-023",
+          "w_mm": 6.738173719534608,
+          "entry_mm": [
+            18.0,
+            38.0,
+            0.0
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": false,
+          "overall_min_clearance_mm": 0.0,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-024",
+          "w_mm": 7.256494774883424,
+          "entry_mm": [
+            18.0,
+            38.0,
+            0.0
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": false,
+          "overall_min_clearance_mm": 0.0,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-025",
+          "w_mm": 7.562673459217067,
+          "entry_mm": [
+            18.0,
+            38.0,
+            0.0
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": false,
+          "overall_min_clearance_mm": 0.0,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-026",
+          "w_mm": 7.602042145115969,
+          "entry_mm": [
+            18.0,
+            38.0,
+            0.0
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": false,
+          "overall_min_clearance_mm": 0.0,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-027",
+          "w_mm": 7.89294035595649,
+          "entry_mm": [
+            18.0,
+            38.0,
+            0.0
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": false,
+          "overall_min_clearance_mm": 0.0,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-028",
+          "w_mm": 8.120363200464785,
+          "entry_mm": [
+            18.0,
+            38.0,
+            0.0
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": false,
+          "overall_min_clearance_mm": 0.0,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-029",
+          "w_mm": 8.409305435673494,
+          "entry_mm": [
+            18.0,
+            38.0,
+            0.0
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": false,
+          "overall_min_clearance_mm": 0.0,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-030",
+          "w_mm": 8.46591057069733,
+          "entry_mm": [
+            18.0,
+            38.0,
+            0.0
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": false,
+          "overall_min_clearance_mm": 0.0,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-031",
+          "w_mm": 8.58147953704815,
+          "entry_mm": [
+            18.0,
+            38.0,
+            0.0
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": false,
+          "overall_min_clearance_mm": 0.0,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-032",
+          "w_mm": 8.58147953704815,
+          "entry_mm": [
+            18.0,
+            38.0,
+            0.0
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": false,
+          "overall_min_clearance_mm": 0.0,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-033",
+          "w_mm": 9.098138238287275,
+          "entry_mm": [
+            18.0,
+            38.0,
+            0.0
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": false,
+          "overall_min_clearance_mm": 0.0,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-034",
+          "w_mm": 9.098138238287275,
+          "entry_mm": [
+            18.0,
+            38.0,
+            0.0
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": false,
+          "overall_min_clearance_mm": 0.0,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-035",
+          "w_mm": 9.157005311162417,
+          "entry_mm": [
+            18.0,
+            38.0,
+            0.0
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": false,
+          "overall_min_clearance_mm": 0.0,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-036",
+          "w_mm": 9.442678597965601,
+          "entry_mm": [
+            18.0,
+            38.0,
+            0.0
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": false,
+          "overall_min_clearance_mm": 0.0,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-037",
+          "w_mm": 9.502552681394961,
+          "entry_mm": [
+            18.0,
+            38.0,
+            0.0
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": false,
+          "overall_min_clearance_mm": 0.0,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-038",
+          "w_mm": 9.502552681394961,
+          "entry_mm": [
+            18.0,
+            38.0,
+            0.0
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": false,
+          "overall_min_clearance_mm": 0.0,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-039",
+          "w_mm": 9.614975881094546,
+          "entry_mm": [
+            18.0,
+            38.0,
+            0.0
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": false,
+          "overall_min_clearance_mm": 0.0,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-040",
+          "w_mm": 9.675326366511234,
+          "entry_mm": [
+            18.0,
+            38.0,
+            0.0
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": false,
+          "overall_min_clearance_mm": 0.0,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-041",
+          "w_mm": 10.020873736743779,
+          "entry_mm": [
+            18.0,
+            38.0,
+            0.0
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": false,
+          "overall_min_clearance_mm": 0.0,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-042",
+          "w_mm": 10.19364742186005,
+          "entry_mm": [
+            18.0,
+            38.0,
+            0.0
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": false,
+          "overall_min_clearance_mm": 0.0,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-043",
+          "w_mm": 10.649083766908161,
+          "entry_mm": [
+            18.0,
+            38.0,
+            0.0
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": false,
+          "overall_min_clearance_mm": 0.0,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-044",
+          "w_mm": 10.649083766908161,
+          "entry_mm": [
+            18.0,
+            38.0,
+            0.0
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": false,
+          "overall_min_clearance_mm": 0.0,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-045",
+          "w_mm": 10.649083766908161,
+          "entry_mm": [
+            18.0,
+            38.0,
+            0.0
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": false,
+          "overall_min_clearance_mm": 0.0,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-046",
+          "w_mm": 10.711968477208867,
+          "entry_mm": [
+            18.0,
+            38.0,
+            0.0
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": false,
+          "overall_min_clearance_mm": 0.0,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-047",
+          "w_mm": 10.711968477208867,
+          "entry_mm": [
+            18.0,
+            38.0,
+            0.0
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": false,
+          "overall_min_clearance_mm": 0.0,
+          "target_hit": true
+        },
+        {
+          "scene_id": "titration-048",
+          "w_mm": 11.230289532557682,
+          "entry_mm": [
+            18.0,
+            38.0,
+            0.0
+          ],
+          "target_mm": [
+            18.0,
+            10.0,
+            0.0
+          ],
+          "path_safe": false,
+          "overall_min_clearance_mm": 0.0,
+          "target_hit": true
+        }
+      ]
+    }
+  }
+}
