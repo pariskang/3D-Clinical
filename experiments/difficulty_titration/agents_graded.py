@@ -170,3 +170,55 @@ class NaiveStraightAgent:
 def build_agents():
     """The graded agent roster, ordered from most to least competent."""
     return [OracleAgent(), NoisyAgent(3.0), NoisyAgent(6.0), NaiveStraightAgent()]
+
+
+# ---------------------------------------------------------------------------
+# Scaled (statistically-powered) study helpers
+# ---------------------------------------------------------------------------
+#
+# ``run_titration_scaled.py`` precomputes the oracle (argmax-clearance) entry per
+# scene from the corridor search and scores every path with the SDF fast backend,
+# so it needs a perturbation generator DECOUPLED from the (expensive) oracle
+# recovery. ``perturbed_entries`` reproduces ``NoisyAgent``'s exact seeding scheme
+# (salt, sigma, scene index) around a supplied base entry, and
+# ``build_agents_scaled`` is the denser sigma ladder used to titrate competence.
+
+
+def perturbed_entries(base_entry, lesion, sigma_mm, scene_index, n_mc, salt=_NOISE_SALT):
+    """Seeded Gaussian(sigma) perturbations of ``base_entry`` on the (x, z) axes.
+
+    Bit-identical to ``NoisyAgent(sigma, n_mc).act_ensemble`` when ``base_entry``
+    is the oracle entry: the RNG is ``default_rng([salt, round(sigma*1000),
+    scene_index])`` and each draw shifts (x, z) by ``N(0, sigma)``. Returns a list
+    of ``{"entry_mm", "target_mm"}`` actions (target fixed at the lesion centroid).
+    """
+    base = np.asarray(base_entry, dtype=float)
+    lesion = np.asarray(lesion, dtype=float)
+    seed = np.array([int(salt), int(round(float(sigma_mm) * 1000)), int(scene_index)], dtype=np.int64)
+    rng = np.random.default_rng(seed)
+    out = []
+    for _ in range(int(n_mc)):
+        dx, dz = rng.normal(0.0, float(sigma_mm), size=2)
+        e = base.copy()
+        e[0] += dx
+        e[2] += dz
+        out.append({"entry_mm": [float(v) for v in e], "target_mm": [float(v) for v in lesion]})
+    return out
+
+
+# The powered study's sigma ladder (mm) and Monte-Carlo draw count per scene.
+SCALED_SIGMAS = (2.0, 4.0, 6.0, 8.0)
+SCALED_N_MC = 25
+
+
+def build_agents_scaled(n_mc: int = SCALED_N_MC):
+    """Graded roster for the powered titration: oracle, sigma ladder, naive.
+
+    Oracle and naive are the construction ceiling / floor; the scientific content
+    is the four ``NoisyAgent`` tiers (sigma = 2, 4, 6, 8 mm), whose 50%-safe
+    corridor width ``w50`` should be monotone in sigma.
+    """
+    agents = [OracleAgent()]
+    agents += [NoisyAgent(s, n_mc=n_mc) for s in SCALED_SIGMAS]
+    agents += [NaiveStraightAgent()]
+    return agents
