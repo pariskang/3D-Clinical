@@ -75,6 +75,14 @@ class SceneGraph:
         # label_map: node id -> integer label in the volume
         self.label_map = label_map
         self._nodes_by_id = {n.id: n for n in model.nodes}
+        # Lazily-populated cache of ``np.argwhere(vol == label)`` per structure id.
+        # Scanning the full volume for a structure's voxels is expensive and the
+        # coordinates never change for a fixed scene, so memoize on first use.
+        self._forbidden_coords_cache: dict[str, np.ndarray] = {}
+        # Lazily-populated cache of per-scene forbidden distance fields (mm), keyed
+        # by the sorted tuple of structure ids. Used by the OPT-IN SDF fast backend
+        # (trace3d.scoring.fast_batch); never touched by the exact scoring path.
+        self._sdf_field_cache: dict[tuple[str, ...], np.ndarray] = {}
 
     # ---- construction -------------------------------------------------
 
@@ -223,14 +231,30 @@ class SceneGraph:
                 best_id = n.id
         return best_id, best_d
 
+    def structure_coords_vox(self, structure: str) -> np.ndarray | None:
+        """Return (and memoize) the voxel coords of a structure by id.
+
+        Computes ``np.argwhere(vol == label)`` once per structure and caches it,
+        so repeated scorer calls (execute_signature / corridor_regret) never
+        re-scan the full volume. Returns ``None`` if the structure has no label.
+        """
+        label = self.label_map.get(structure)
+        if label is None:
+            return None
+        coords = self._forbidden_coords_cache.get(structure)
+        if coords is None:
+            coords = np.argwhere(self.vol == label)
+            self._forbidden_coords_cache[structure] = coords
+        return coords
+
     def forbidden_coords_vox(self, structures: list[str]) -> np.ndarray:
         """Return stacked voxel coords for the given forbidden structure ids."""
         chunks = []
         for s in structures:
-            label = self.label_map.get(s)
-            if label is None:
+            coords = self.structure_coords_vox(s)
+            if coords is None:
                 continue
-            chunks.append(np.argwhere(self.vol == label))
+            chunks.append(coords)
         if not chunks:
             return np.zeros((0, 3), dtype=int)
         return np.vstack(chunks)
