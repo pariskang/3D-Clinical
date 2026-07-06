@@ -1,0 +1,20 @@
+{
+  "case_id": "pierce-blocker-002",
+  "blocker_dy_mm": 16.6352568712579,
+  "blocker_radius_mm": 2.9135750098102733,
+  "optimal_min_clearance_mm": 8.237156443133559,
+  "feasible_exists": true,
+  "forbidden_structures": [
+    "aorta",
+    "portal_vein",
+    "colon",
+    "bowel_loop"
+  ],
+  "critical_structures": [
+    "aorta",
+    "portal_vein",
+    "colon",
+    "bowel_loop"
+  ],
+  "private_seed": 20260704
+}

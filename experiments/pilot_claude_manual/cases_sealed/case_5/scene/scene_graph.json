@@ -1,0 +1,406 @@
+{
+  "frame": "RAS",
+  "spacing_mm": [
+    1.0,
+    1.0,
+    1.0
+  ],
+  "midline_x_mm": -0.5,
+  "nodes": [
+    {
+      "id": "body",
+      "ta_name": "body",
+      "centroid_mm": [
+        -0.2596433354722265,
+        -0.49713832916320655,
+        -0.24226229183443948
+      ],
+      "bbox_mm": [
+        [
+          -35.0,
+          -35.0,
+          -25.0
+        ],
+        [
+          35.0,
+          35.0,
+          25.0
+        ]
+      ],
+      "volume_mm3": 232207.0,
+      "side": "right",
+      "is_critical": false
+    },
+    {
+      "id": "liver",
+      "ta_name": "liver",
+      "centroid_mm": [
+        15.2953213565184,
+        4.813142472860022,
+        0.1393985973676628
+      ],
+      "bbox_mm": [
+        [
+          -1.0,
+          -9.0,
+          -12.0
+        ],
+        [
+          31.0,
+          19.0,
+          12.0
+        ]
+      ],
+      "volume_mm3": 10409.0,
+      "side": "right",
+      "is_critical": false
+    },
+    {
+      "id": "aorta",
+      "ta_name": "aorta",
+      "centroid_mm": [
+        -3.0,
+        -14.0,
+        0.0
+      ],
+      "bbox_mm": [
+        [
+          -6.0,
+          -17.0,
+          -22.0
+        ],
+        [
+          0.0,
+          -11.0,
+          22.0
+        ]
+      ],
+      "volume_mm3": 1305.0,
+      "side": "left",
+      "is_critical": true
+    },
+    {
+      "id": "portal_vein",
+      "ta_name": "portal_vein",
+      "centroid_mm": [
+        11.995639534883722,
+        4.985465116279073,
+        0.013081395348837788
+      ],
+      "bbox_mm": [
+        [
+          10.0,
+          3.0,
+          -16.0
+        ],
+        [
+          14.0,
+          7.0,
+          16.0
+        ]
+      ],
+      "volume_mm3": 688.0,
+      "side": "right",
+      "is_critical": true
+    },
+    {
+      "id": "lung_right",
+      "ta_name": "lung_right",
+      "centroid_mm": [
+        14.017535070140283,
+        -2.0578657314629254,
+        20.0438376753507
+      ],
+      "bbox_mm": [
+        [
+          2.0,
+          -12.0,
+          12.0
+        ],
+        [
+          26.0,
+          8.0,
+          28.0
+        ]
+      ],
+      "volume_mm3": 3992.0,
+      "side": "right",
+      "is_critical": false
+    },
+    {
+      "id": "colon",
+      "ta_name": "colon",
+      "centroid_mm": [
+        -19.0,
+        10.0,
+        -2.0
+      ],
+      "bbox_mm": [
+        [
+          -28.0,
+          0.0,
+          -12.0
+        ],
+        [
+          -10.0,
+          20.0,
+          8.0
+        ]
+      ],
+      "volume_mm3": 8379.0,
+      "side": "left",
+      "is_critical": true
+    },
+    {
+      "id": "gallbladder",
+      "ta_name": "gallbladder",
+      "centroid_mm": [
+        8.0,
+        12.0,
+        -6.0
+      ],
+      "bbox_mm": [
+        [
+          4.0,
+          8.0,
+          -10.0
+        ],
+        [
+          12.0,
+          16.0,
+          -2.0
+        ]
+      ],
+      "volume_mm3": 257.0,
+      "side": "right",
+      "is_critical": false
+    },
+    {
+      "id": "lesion",
+      "ta_name": "lesion",
+      "centroid_mm": [
+        13.77064220183486,
+        9.26605504587156,
+        -1.8440366972477058
+      ],
+      "bbox_mm": [
+        [
+          11.0,
+          7.0,
+          -4.0
+        ],
+        [
+          16.0,
+          12.0,
+          1.0
+        ]
+      ],
+      "volume_mm3": 109.0,
+      "side": "right",
+      "is_critical": false
+    }
+  ],
+  "edges": [
+    {
+      "src": "body",
+      "dst": "liver",
+      "distance_surface_mm": 1.0,
+      "adjacent": true,
+      "direction": "right"
+    },
+    {
+      "src": "body",
+      "dst": "aorta",
+      "distance_surface_mm": 1.0,
+      "adjacent": true,
+      "direction": "posterior"
+    },
+    {
+      "src": "body",
+      "dst": "portal_vein",
+      "distance_surface_mm": 1.0,
+      "adjacent": true,
+      "direction": "right"
+    },
+    {
+      "src": "body",
+      "dst": "lung_right",
+      "distance_surface_mm": 1.0,
+      "adjacent": true,
+      "direction": "superior"
+    },
+    {
+      "src": "body",
+      "dst": "colon",
+      "distance_surface_mm": 1.0,
+      "adjacent": true,
+      "direction": "left"
+    },
+    {
+      "src": "body",
+      "dst": "gallbladder",
+      "distance_surface_mm": 1.0,
+      "adjacent": true,
+      "direction": "anterior"
+    },
+    {
+      "src": "body",
+      "dst": "lesion",
+      "distance_surface_mm": 5.916079783099616,
+      "adjacent": true,
+      "direction": "right"
+    },
+    {
+      "src": "liver",
+      "dst": "aorta",
+      "distance_surface_mm": 8.602325267042627,
+      "adjacent": false,
+      "direction": "posterior"
+    },
+    {
+      "src": "liver",
+      "dst": "portal_vein",
+      "distance_surface_mm": 1.0,
+      "adjacent": true,
+      "direction": "left"
+    },
+    {
+      "src": "liver",
+      "dst": "lung_right",
+      "distance_surface_mm": 2.0,
+      "adjacent": true,
+      "direction": "superior"
+    },
+    {
+      "src": "liver",
+      "dst": "colon",
+      "distance_surface_mm": 9.0,
+      "adjacent": false,
+      "direction": "left"
+    },
+    {
+      "src": "liver",
+      "dst": "gallbladder",
+      "distance_surface_mm": 1.0,
+      "adjacent": true,
+      "direction": "left"
+    },
+    {
+      "src": "liver",
+      "dst": "lesion",
+      "distance_surface_mm": 1.0,
+      "adjacent": true,
+      "direction": "anterior"
+    },
+    {
+      "src": "aorta",
+      "dst": "portal_vein",
+      "distance_surface_mm": 19.209372712298546,
+      "adjacent": false,
+      "direction": "anterior"
+    },
+    {
+      "src": "aorta",
+      "dst": "lung_right",
+      "distance_surface_mm": 7.0710678118654755,
+      "adjacent": false,
+      "direction": "superior"
+    },
+    {
+      "src": "aorta",
+      "dst": "colon",
+      "distance_surface_mm": 13.0,
+      "adjacent": false,
+      "direction": "anterior"
+    },
+    {
+      "src": "aorta",
+      "dst": "gallbladder",
+      "distance_surface_mm": 21.93171219946131,
+      "adjacent": false,
+      "direction": "anterior"
+    },
+    {
+      "src": "aorta",
+      "dst": "lesion",
+      "distance_surface_mm": 23.021728866442675,
+      "adjacent": false,
+      "direction": "anterior"
+    },
+    {
+      "src": "portal_vein",
+      "dst": "lung_right",
+      "distance_surface_mm": 1.0,
+      "adjacent": true,
+      "direction": "superior"
+    },
+    {
+      "src": "portal_vein",
+      "dst": "colon",
+      "distance_surface_mm": 20.0,
+      "adjacent": false,
+      "direction": "left"
+    },
+    {
+      "src": "portal_vein",
+      "dst": "gallbladder",
+      "distance_surface_mm": 2.23606797749979,
+      "adjacent": true,
+      "direction": "anterior"
+    },
+    {
+      "src": "portal_vein",
+      "dst": "lesion",
+      "distance_surface_mm": 1.0,
+      "adjacent": true,
+      "direction": "anterior"
+    },
+    {
+      "src": "lung_right",
+      "dst": "colon",
+      "distance_surface_mm": 15.84297951775486,
+      "adjacent": false,
+      "direction": "left"
+    },
+    {
+      "src": "lung_right",
+      "dst": "gallbladder",
+      "distance_surface_mm": 18.0,
+      "adjacent": false,
+      "direction": "inferior"
+    },
+    {
+      "src": "lung_right",
+      "dst": "lesion",
+      "distance_surface_mm": 13.892443989449804,
+      "adjacent": false,
+      "direction": "inferior"
+    },
+    {
+      "src": "colon",
+      "dst": "gallbladder",
+      "distance_surface_mm": 14.0,
+      "adjacent": false,
+      "direction": "right"
+    },
+    {
+      "src": "colon",
+      "dst": "lesion",
+      "distance_surface_mm": 21.0,
+      "adjacent": false,
+      "direction": "right"
+    },
+    {
+      "src": "gallbladder",
+      "dst": "lesion",
+      "distance_surface_mm": 1.4142135623730951,
+      "adjacent": true,
+      "direction": "right"
+    }
+  ],
+  "critical_structures": [
+    "aorta",
+    "portal_vein",
+    "colon"
+  ]
+}

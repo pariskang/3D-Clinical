@@ -61,9 +61,30 @@ def test_overconfident_near_vessel():
     assert det.overconfident_near_vessel(0.5, 1.0) is False
 
 
+def test_safety_calibration_error():
+    # Binary calibration to the safety outcome (the old margin_calibration_error).
+    assert abs(det.safety_calibration_error(0.9, True) - 0.1) < 1e-9
+    assert abs(det.safety_calibration_error(0.9, False) - 0.9) < 1e-9
+
+
 def test_margin_calibration_error():
-    assert abs(det.margin_calibration_error(0.9, True) - 0.1) < 1e-9
-    assert abs(det.margin_calibration_error(0.9, False) - 0.9) < 1e-9
+    # Margin form: target = clip(clearance / MARGIN_FULL_MM, 0, 1); MARGIN_FULL_MM=6.
+    assert abs(det.margin_calibration_error(0.9, 6.0) - 0.1) < 1e-9   # target 1.0
+    assert abs(det.margin_calibration_error(0.9, 3.0) - 0.4) < 1e-9   # target 0.5
+    assert abs(det.margin_calibration_error(0.9, 0.0) - 0.9) < 1e-9   # target 0.0
+    assert abs(det.margin_calibration_error(0.7, 12.0) - 0.3) < 1e-9  # clip -> 1.0
+
+
+def test_margin_confidence_correlation():
+    from trace3d.scoring.aggregate import margin_confidence_correlation
+
+    # Monotonic increasing confidence with clearance -> r ~ 1.0.
+    mono = [(0.1, 1.0), (0.3, 3.0), (0.6, 6.0), (0.9, 9.0)]
+    r = margin_confidence_correlation(mono)
+    assert r is not None and abs(r - 1.0) < 1e-9
+    # Constant confidence -> zero variance -> undefined.
+    const = [(0.5, 1.0), (0.5, 4.0), (0.5, 8.0)]
+    assert margin_confidence_correlation(const) is None
 
 
 def test_survey_coverage():

@@ -1,0 +1,20 @@
+{
+  "scene_id": "titration-001",
+  "w_optimal_min_clearance_mm": 3.574369791024016,
+  "w_fast_sdf_mm": 3.5999798546344266,
+  "w_bin": 0,
+  "w_bin_range_mm": [
+    3.5,
+    4.5
+  ],
+  "blocker_dy_mm": 14.0,
+  "blocker_radius_mm": 4.800000000000001,
+  "blocker_bx_mm": -1.2,
+  "lesion_mm": [
+    18.0,
+    10.0,
+    0.0
+  ],
+  "feasible_exists": true,
+  "private_seed": 20260705
+}

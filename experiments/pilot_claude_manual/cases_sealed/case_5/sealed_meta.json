@@ -1,0 +1,7 @@
+{
+  "case_id": "pilot-blind-005",
+  "tier": "tight",
+  "optimal_min_clearance_mm": 3.0214841080113377,
+  "feasible_exists": true,
+  "private_seed": 20260703
+}

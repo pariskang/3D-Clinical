@@ -109,6 +109,9 @@ def _print_scorecard(rec, case_id: str) -> None:
     typer.echo(f" belief_fidelity      : {rec.belief_fidelity:.3f}")
     typer.echo(f" corridor_regret_mm   : {rec.corridor_regret_mm:.3f}")
     typer.echo(f" margin_calib_error   : {rec.margin_calibration_error:.3f}")
+    sce = rec.deterministic.get("safety_calibration_error")
+    if sce is not None:
+        typer.echo(f" safety_calib_error   : {sce:.3f}")
     typer.echo(f" overconfident_vessel : {rec.overconfident_near_vessel}")
     typer.echo("=" * 56)
 

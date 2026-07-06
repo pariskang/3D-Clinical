@@ -1,0 +1,1073 @@
+{
+  "n_records": 24,
+  "n_scored": 24,
+  "n_skipped": 0,
+  "d_safe_mm": 3.0,
+  "decisions_source": "/home/user/3D-Clinical/experiments/pilot_claude_manual/decisions_claude.json",
+  "per_decision": [
+    {
+      "case_id": "pilot-blind-001",
+      "tier": "wide",
+      "sealed_optimal_min_clearance_mm": 17.369774446649718,
+      "condition": "T1",
+      "strategy": "careful",
+      "entry_mm": [
+        14.588,
+        36.0,
+        -1.237
+      ],
+      "target_mm": [
+        14.588,
+        10.096,
+        -1.237
+      ],
+      "confidence_safe": 0.9,
+      "complication_ack": true,
+      "min_clearance_mm": 17.36948844957732,
+      "path_safe": true,
+      "critical_hit": false,
+      "pierced_critical": [],
+      "grazed_or_pierced": [],
+      "target_hit": true,
+      "feasible": true,
+      "corridor_regret_mm": 0.0002859970723960714,
+      "belief_fidelity": 0.5,
+      "overconfident_near_vessel": false,
+      "margin_calibration_error": 0.09999999999999998,
+      "hallucinated_safety_count": 0,
+      "complication_penalty": 0,
+      "episode_score": 1.0
+    },
+    {
+      "case_id": "pilot-blind-002",
+      "tier": "wide",
+      "sealed_optimal_min_clearance_mm": 20.07329722755856,
+      "condition": "T1",
+      "strategy": "careful",
+      "entry_mm": [
+        15.108,
+        36.0,
+        -0.919
+      ],
+      "target_mm": [
+        15.108,
+        11.342,
+        -0.919
+      ],
+      "confidence_safe": 0.9,
+      "complication_ack": true,
+      "min_clearance_mm": 20.072946694494057,
+      "path_safe": true,
+      "critical_hit": false,
+      "pierced_critical": [],
+      "grazed_or_pierced": [],
+      "target_hit": true,
+      "feasible": true,
+      "corridor_regret_mm": 0.00035053306450194555,
+      "belief_fidelity": 0.5,
+      "overconfident_near_vessel": false,
+      "margin_calibration_error": 0.09999999999999998,
+      "hallucinated_safety_count": 0,
+      "complication_penalty": 0,
+      "episode_score": 1.0
+    },
+    {
+      "case_id": "pilot-blind-003",
+      "tier": "moderate",
+      "sealed_optimal_min_clearance_mm": 9.108364073262825,
+      "condition": "T1",
+      "strategy": "careful",
+      "entry_mm": [
+        13.526,
+        36.0,
+        -0.307
+      ],
+      "target_mm": [
+        13.526,
+        9.746,
+        -0.307
+      ],
+      "confidence_safe": 0.78,
+      "complication_ack": true,
+      "min_clearance_mm": 9.108646496598714,
+      "path_safe": true,
+      "critical_hit": false,
+      "pierced_critical": [],
+      "grazed_or_pierced": [],
+      "target_hit": true,
+      "feasible": true,
+      "corridor_regret_mm": 0.0,
+      "belief_fidelity": 0.5,
+      "overconfident_near_vessel": false,
+      "margin_calibration_error": 0.21999999999999997,
+      "hallucinated_safety_count": 0,
+      "complication_penalty": 0,
+      "episode_score": 1.0
+    },
+    {
+      "case_id": "pilot-blind-004",
+      "tier": "moderate",
+      "sealed_optimal_min_clearance_mm": 8.675274509295619,
+      "condition": "T1",
+      "strategy": "careful",
+      "entry_mm": [
+        14.737,
+        36.0,
+        -2.737
+      ],
+      "target_mm": [
+        14.737,
+        9.263,
+        -2.737
+      ],
+      "confidence_safe": 0.78,
+      "complication_ack": true,
+      "min_clearance_mm": 8.675223743512323,
+      "path_safe": true,
+      "critical_hit": false,
+      "pierced_critical": [],
+      "grazed_or_pierced": [],
+      "target_hit": true,
+      "feasible": true,
+      "corridor_regret_mm": 5.076578329621384e-05,
+      "belief_fidelity": 0.5,
+      "overconfident_near_vessel": false,
+      "margin_calibration_error": 0.21999999999999997,
+      "hallucinated_safety_count": 0,
+      "complication_penalty": 0,
+      "episode_score": 1.0
+    },
+    {
+      "case_id": "pilot-blind-005",
+      "tier": "tight",
+      "sealed_optimal_min_clearance_mm": 3.0214841080113377,
+      "condition": "T1",
+      "strategy": "careful",
+      "entry_mm": [
+        13.771,
+        36.0,
+        -1.844
+      ],
+      "target_mm": [
+        13.771,
+        12.0,
+        -1.844
+      ],
+      "confidence_safe": 0.6,
+      "complication_ack": true,
+      "min_clearance_mm": 5.384679841921894,
+      "path_safe": true,
+      "critical_hit": false,
+      "pierced_critical": [],
+      "grazed_or_pierced": [],
+      "target_hit": true,
+      "feasible": true,
+      "corridor_regret_mm": 0.0,
+      "belief_fidelity": 0.5,
+      "overconfident_near_vessel": false,
+      "margin_calibration_error": 0.4,
+      "hallucinated_safety_count": 0,
+      "complication_penalty": 0,
+      "episode_score": 1.0
+    },
+    {
+      "case_id": "pilot-blind-006",
+      "tier": "tight",
+      "sealed_optimal_min_clearance_mm": 4.738060039465858,
+      "condition": "T1",
+      "strategy": "careful",
+      "entry_mm": [
+        12.982,
+        36.0,
+        1.381
+      ],
+      "target_mm": [
+        12.982,
+        13.5,
+        1.381
+      ],
+      "confidence_safe": 0.65,
+      "complication_ack": true,
+      "min_clearance_mm": 6.584791948118027,
+      "path_safe": true,
+      "critical_hit": false,
+      "pierced_critical": [],
+      "grazed_or_pierced": [],
+      "target_hit": true,
+      "feasible": true,
+      "corridor_regret_mm": 0.0,
+      "belief_fidelity": 0.5,
+      "overconfident_near_vessel": false,
+      "margin_calibration_error": 0.35,
+      "hallucinated_safety_count": 0,
+      "complication_penalty": 0,
+      "episode_score": 1.0
+    },
+    {
+      "case_id": "pilot-blind-001",
+      "tier": "wide",
+      "sealed_optimal_min_clearance_mm": 17.369774446649718,
+      "condition": "T1",
+      "strategy": "fast",
+      "entry_mm": [
+        14.588,
+        36.0,
+        -1.237
+      ],
+      "target_mm": [
+        14.588,
+        10.096,
+        -1.237
+      ],
+      "confidence_safe": 0.9,
+      "complication_ack": false,
+      "min_clearance_mm": 17.36948844957732,
+      "path_safe": true,
+      "critical_hit": false,
+      "pierced_critical": [],
+      "grazed_or_pierced": [],
+      "target_hit": true,
+      "feasible": true,
+      "corridor_regret_mm": 0.0002859970723960714,
+      "belief_fidelity": 0.5,
+      "overconfident_near_vessel": false,
+      "margin_calibration_error": 0.09999999999999998,
+      "hallucinated_safety_count": 0,
+      "complication_penalty": 0,
+      "episode_score": 1.0
+    },
+    {
+      "case_id": "pilot-blind-002",
+      "tier": "wide",
+      "sealed_optimal_min_clearance_mm": 20.07329722755856,
+      "condition": "T1",
+      "strategy": "fast",
+      "entry_mm": [
+        15.108,
+        36.0,
+        -0.919
+      ],
+      "target_mm": [
+        15.108,
+        11.342,
+        -0.919
+      ],
+      "confidence_safe": 0.9,
+      "complication_ack": false,
+      "min_clearance_mm": 20.072946694494057,
+      "path_safe": true,
+      "critical_hit": false,
+      "pierced_critical": [],
+      "grazed_or_pierced": [],
+      "target_hit": true,
+      "feasible": true,
+      "corridor_regret_mm": 0.00035053306450194555,
+      "belief_fidelity": 0.5,
+      "overconfident_near_vessel": false,
+      "margin_calibration_error": 0.09999999999999998,
+      "hallucinated_safety_count": 0,
+      "complication_penalty": 0,
+      "episode_score": 1.0
+    },
+    {
+      "case_id": "pilot-blind-003",
+      "tier": "moderate",
+      "sealed_optimal_min_clearance_mm": 9.108364073262825,
+      "condition": "T1",
+      "strategy": "fast",
+      "entry_mm": [
+        13.526,
+        36.0,
+        -0.307
+      ],
+      "target_mm": [
+        13.526,
+        9.746,
+        -0.307
+      ],
+      "confidence_safe": 0.9,
+      "complication_ack": false,
+      "min_clearance_mm": 9.108646496598714,
+      "path_safe": true,
+      "critical_hit": false,
+      "pierced_critical": [],
+      "grazed_or_pierced": [],
+      "target_hit": true,
+      "feasible": true,
+      "corridor_regret_mm": 0.0,
+      "belief_fidelity": 0.5,
+      "overconfident_near_vessel": false,
+      "margin_calibration_error": 0.09999999999999998,
+      "hallucinated_safety_count": 0,
+      "complication_penalty": 0,
+      "episode_score": 1.0
+    },
+    {
+      "case_id": "pilot-blind-004",
+      "tier": "moderate",
+      "sealed_optimal_min_clearance_mm": 8.675274509295619,
+      "condition": "T1",
+      "strategy": "fast",
+      "entry_mm": [
+        14.737,
+        36.0,
+        -2.737
+      ],
+      "target_mm": [
+        14.737,
+        9.263,
+        -2.737
+      ],
+      "confidence_safe": 0.9,
+      "complication_ack": false,
+      "min_clearance_mm": 8.675223743512323,
+      "path_safe": true,
+      "critical_hit": false,
+      "pierced_critical": [],
+      "grazed_or_pierced": [],
+      "target_hit": true,
+      "feasible": true,
+      "corridor_regret_mm": 5.076578329621384e-05,
+      "belief_fidelity": 0.5,
+      "overconfident_near_vessel": false,
+      "margin_calibration_error": 0.09999999999999998,
+      "hallucinated_safety_count": 0,
+      "complication_penalty": 0,
+      "episode_score": 1.0
+    },
+    {
+      "case_id": "pilot-blind-005",
+      "tier": "tight",
+      "sealed_optimal_min_clearance_mm": 3.0214841080113377,
+      "condition": "T1",
+      "strategy": "fast",
+      "entry_mm": [
+        13.771,
+        36.0,
+        -1.844
+      ],
+      "target_mm": [
+        13.771,
+        9.266,
+        -1.844
+      ],
+      "confidence_safe": 0.9,
+      "complication_ack": false,
+      "min_clearance_mm": 3.021511707738362,
+      "path_safe": true,
+      "critical_hit": false,
+      "pierced_critical": [],
+      "grazed_or_pierced": [],
+      "target_hit": true,
+      "feasible": true,
+      "corridor_regret_mm": 0.0,
+      "belief_fidelity": 0.5,
+      "overconfident_near_vessel": false,
+      "margin_calibration_error": 0.09999999999999998,
+      "hallucinated_safety_count": 0,
+      "complication_penalty": 0,
+      "episode_score": 1.0
+    },
+    {
+      "case_id": "pilot-blind-006",
+      "tier": "tight",
+      "sealed_optimal_min_clearance_mm": 4.738060039465858,
+      "condition": "T1",
+      "strategy": "fast",
+      "entry_mm": [
+        12.982,
+        36.0,
+        1.381
+      ],
+      "target_mm": [
+        12.982,
+        11.619,
+        1.381
+      ],
+      "confidence_safe": 0.9,
+      "complication_ack": false,
+      "min_clearance_mm": 4.73757807323531,
+      "path_safe": true,
+      "critical_hit": false,
+      "pierced_critical": [],
+      "grazed_or_pierced": [],
+      "target_hit": true,
+      "feasible": true,
+      "corridor_regret_mm": 0.0004819662305477479,
+      "belief_fidelity": 0.5,
+      "overconfident_near_vessel": false,
+      "margin_calibration_error": 0.09999999999999998,
+      "hallucinated_safety_count": 0,
+      "complication_penalty": 0,
+      "episode_score": 1.0
+    },
+    {
+      "case_id": "pilot-blind-001",
+      "tier": "wide",
+      "sealed_optimal_min_clearance_mm": 17.369774446649718,
+      "condition": "T0",
+      "strategy": "careful",
+      "entry_mm": [
+        18.0,
+        36.0,
+        0.0
+      ],
+      "target_mm": [
+        15.0,
+        11.0,
+        0.0
+      ],
+      "confidence_safe": 0.6,
+      "complication_ack": true,
+      "min_clearance_mm": 18.35755975068582,
+      "path_safe": true,
+      "critical_hit": false,
+      "pierced_critical": [],
+      "grazed_or_pierced": [],
+      "target_hit": true,
+      "feasible": true,
+      "corridor_regret_mm": 0.0,
+      "belief_fidelity": 0.5,
+      "overconfident_near_vessel": false,
+      "margin_calibration_error": 0.4,
+      "hallucinated_safety_count": 0,
+      "complication_penalty": 0,
+      "episode_score": 1.0
+    },
+    {
+      "case_id": "pilot-blind-002",
+      "tier": "wide",
+      "sealed_optimal_min_clearance_mm": 20.07329722755856,
+      "condition": "T0",
+      "strategy": "careful",
+      "entry_mm": [
+        18.0,
+        36.0,
+        0.0
+      ],
+      "target_mm": [
+        15.0,
+        12.0,
+        0.0
+      ],
+      "confidence_safe": 0.6,
+      "complication_ack": true,
+      "min_clearance_mm": 20.591260281974,
+      "path_safe": true,
+      "critical_hit": false,
+      "pierced_critical": [],
+      "grazed_or_pierced": [],
+      "target_hit": true,
+      "feasible": true,
+      "corridor_regret_mm": 0.0,
+      "belief_fidelity": 0.5,
+      "overconfident_near_vessel": false,
+      "margin_calibration_error": 0.4,
+      "hallucinated_safety_count": 0,
+      "complication_penalty": 0,
+      "episode_score": 1.0
+    },
+    {
+      "case_id": "pilot-blind-003",
+      "tier": "moderate",
+      "sealed_optimal_min_clearance_mm": 9.108364073262825,
+      "condition": "T0",
+      "strategy": "careful",
+      "entry_mm": [
+        18.0,
+        36.0,
+        0.0
+      ],
+      "target_mm": [
+        15.0,
+        11.0,
+        0.0
+      ],
+      "confidence_safe": 0.6,
+      "complication_ack": true,
+      "min_clearance_mm": 10.770329614269007,
+      "path_safe": true,
+      "critical_hit": false,
+      "pierced_critical": [],
+      "grazed_or_pierced": [],
+      "target_hit": true,
+      "feasible": true,
+      "corridor_regret_mm": 0.0,
+      "belief_fidelity": 0.5,
+      "overconfident_near_vessel": false,
+      "margin_calibration_error": 0.4,
+      "hallucinated_safety_count": 0,
+      "complication_penalty": 0,
+      "episode_score": 1.0
+    },
+    {
+      "case_id": "pilot-blind-004",
+      "tier": "moderate",
+      "sealed_optimal_min_clearance_mm": 8.675274509295619,
+      "condition": "T0",
+      "strategy": "careful",
+      "entry_mm": [
+        18.0,
+        36.0,
+        0.0
+      ],
+      "target_mm": [
+        15.0,
+        10.0,
+        0.0
+      ],
+      "confidence_safe": 0.6,
+      "complication_ack": true,
+      "min_clearance_mm": 9.433981132056603,
+      "path_safe": true,
+      "critical_hit": false,
+      "pierced_critical": [],
+      "grazed_or_pierced": [],
+      "target_hit": true,
+      "feasible": true,
+      "corridor_regret_mm": 0.0,
+      "belief_fidelity": 0.5,
+      "overconfident_near_vessel": false,
+      "margin_calibration_error": 0.4,
+      "hallucinated_safety_count": 0,
+      "complication_penalty": 0,
+      "episode_score": 1.0
+    },
+    {
+      "case_id": "pilot-blind-005",
+      "tier": "tight",
+      "sealed_optimal_min_clearance_mm": 3.0214841080113377,
+      "condition": "T0",
+      "strategy": "careful",
+      "entry_mm": [
+        18.0,
+        36.0,
+        0.0
+      ],
+      "target_mm": [
+        15.0,
+        10.0,
+        0.0
+      ],
+      "confidence_safe": 0.6,
+      "complication_ack": true,
+      "min_clearance_mm": 3.605551275463989,
+      "path_safe": true,
+      "critical_hit": false,
+      "pierced_critical": [],
+      "grazed_or_pierced": [],
+      "target_hit": true,
+      "feasible": true,
+      "corridor_regret_mm": 0.0,
+      "belief_fidelity": 0.5,
+      "overconfident_near_vessel": false,
+      "margin_calibration_error": 0.4,
+      "hallucinated_safety_count": 0,
+      "complication_penalty": 0,
+      "episode_score": 1.0
+    },
+    {
+      "case_id": "pilot-blind-006",
+      "tier": "tight",
+      "sealed_optimal_min_clearance_mm": 4.738060039465858,
+      "condition": "T0",
+      "strategy": "careful",
+      "entry_mm": [
+        18.0,
+        36.0,
+        0.0
+      ],
+      "target_mm": [
+        15.0,
+        13.0,
+        0.0
+      ],
+      "confidence_safe": 0.6,
+      "complication_ack": true,
+      "min_clearance_mm": 6.708203932499369,
+      "path_safe": true,
+      "critical_hit": false,
+      "pierced_critical": [],
+      "grazed_or_pierced": [],
+      "target_hit": true,
+      "feasible": true,
+      "corridor_regret_mm": 0.0,
+      "belief_fidelity": 0.5,
+      "overconfident_near_vessel": false,
+      "margin_calibration_error": 0.4,
+      "hallucinated_safety_count": 0,
+      "complication_penalty": 0,
+      "episode_score": 1.0
+    },
+    {
+      "case_id": "pilot-blind-001",
+      "tier": "wide",
+      "sealed_optimal_min_clearance_mm": 17.369774446649718,
+      "condition": "T0",
+      "strategy": "fast",
+      "entry_mm": [
+        15.0,
+        36.0,
+        0.0
+      ],
+      "target_mm": [
+        15.0,
+        10.0,
+        0.0
+      ],
+      "confidence_safe": 0.9,
+      "complication_ack": false,
+      "min_clearance_mm": 17.4928556845359,
+      "path_safe": true,
+      "critical_hit": false,
+      "pierced_critical": [],
+      "grazed_or_pierced": [],
+      "target_hit": true,
+      "feasible": true,
+      "corridor_regret_mm": 0.0,
+      "belief_fidelity": 0.5,
+      "overconfident_near_vessel": false,
+      "margin_calibration_error": 0.09999999999999998,
+      "hallucinated_safety_count": 0,
+      "complication_penalty": 0,
+      "episode_score": 1.0
+    },
+    {
+      "case_id": "pilot-blind-002",
+      "tier": "wide",
+      "sealed_optimal_min_clearance_mm": 20.07329722755856,
+      "condition": "T0",
+      "strategy": "fast",
+      "entry_mm": [
+        15.0,
+        36.0,
+        0.0
+      ],
+      "target_mm": [
+        15.0,
+        11.0,
+        0.0
+      ],
+      "confidence_safe": 0.9,
+      "complication_ack": false,
+      "min_clearance_mm": 19.72308292331602,
+      "path_safe": true,
+      "critical_hit": false,
+      "pierced_critical": [],
+      "grazed_or_pierced": [],
+      "target_hit": true,
+      "feasible": true,
+      "corridor_regret_mm": 0.3502143042425381,
+      "belief_fidelity": 0.5,
+      "overconfident_near_vessel": false,
+      "margin_calibration_error": 0.09999999999999998,
+      "hallucinated_safety_count": 0,
+      "complication_penalty": 0,
+      "episode_score": 1.0
+    },
+    {
+      "case_id": "pilot-blind-003",
+      "tier": "moderate",
+      "sealed_optimal_min_clearance_mm": 9.108364073262825,
+      "condition": "T0",
+      "strategy": "fast",
+      "entry_mm": [
+        15.0,
+        36.0,
+        0.0
+      ],
+      "target_mm": [
+        15.0,
+        10.0,
+        0.0
+      ],
+      "confidence_safe": 0.9,
+      "complication_ack": false,
+      "min_clearance_mm": 9.848857801796104,
+      "path_safe": true,
+      "critical_hit": false,
+      "pierced_critical": [],
+      "grazed_or_pierced": [],
+      "target_hit": true,
+      "feasible": true,
+      "corridor_regret_mm": 0.0,
+      "belief_fidelity": 0.5,
+      "overconfident_near_vessel": false,
+      "margin_calibration_error": 0.09999999999999998,
+      "hallucinated_safety_count": 0,
+      "complication_penalty": 0,
+      "episode_score": 1.0
+    },
+    {
+      "case_id": "pilot-blind-004",
+      "tier": "moderate",
+      "sealed_optimal_min_clearance_mm": 8.675274509295619,
+      "condition": "T0",
+      "strategy": "fast",
+      "entry_mm": [
+        15.0,
+        36.0,
+        0.0
+      ],
+      "target_mm": [
+        15.0,
+        9.0,
+        0.0
+      ],
+      "confidence_safe": 0.9,
+      "complication_ack": false,
+      "min_clearance_mm": 8.602325267042627,
+      "path_safe": true,
+      "critical_hit": false,
+      "pierced_critical": [],
+      "grazed_or_pierced": [],
+      "target_hit": true,
+      "feasible": true,
+      "corridor_regret_mm": 0.07294924225299226,
+      "belief_fidelity": 0.5,
+      "overconfident_near_vessel": false,
+      "margin_calibration_error": 0.09999999999999998,
+      "hallucinated_safety_count": 0,
+      "complication_penalty": 0,
+      "episode_score": 1.0
+    },
+    {
+      "case_id": "pilot-blind-005",
+      "tier": "tight",
+      "sealed_optimal_min_clearance_mm": 3.0214841080113377,
+      "condition": "T0",
+      "strategy": "fast",
+      "entry_mm": [
+        15.0,
+        36.0,
+        0.0
+      ],
+      "target_mm": [
+        15.0,
+        9.0,
+        0.0
+      ],
+      "confidence_safe": 0.9,
+      "complication_ack": false,
+      "min_clearance_mm": 2.8284271247461903,
+      "path_safe": false,
+      "critical_hit": false,
+      "pierced_critical": [],
+      "grazed_or_pierced": [
+        "portal_vein"
+      ],
+      "target_hit": true,
+      "feasible": true,
+      "corridor_regret_mm": 3.0214841080113377,
+      "belief_fidelity": 0.5,
+      "overconfident_near_vessel": true,
+      "margin_calibration_error": 0.9,
+      "hallucinated_safety_count": 1,
+      "complication_penalty": 0,
+      "episode_score": 0.7
+    },
+    {
+      "case_id": "pilot-blind-006",
+      "tier": "tight",
+      "sealed_optimal_min_clearance_mm": 4.738060039465858,
+      "condition": "T0",
+      "strategy": "fast",
+      "entry_mm": [
+        15.0,
+        36.0,
+        0.0
+      ],
+      "target_mm": [
+        15.0,
+        12.0,
+        0.0
+      ],
+      "confidence_safe": 0.9,
+      "complication_ack": false,
+      "min_clearance_mm": 5.830951894845301,
+      "path_safe": true,
+      "critical_hit": false,
+      "pierced_critical": [],
+      "grazed_or_pierced": [],
+      "target_hit": true,
+      "feasible": true,
+      "corridor_regret_mm": 0.0,
+      "belief_fidelity": 0.5,
+      "overconfident_near_vessel": false,
+      "margin_calibration_error": 0.09999999999999998,
+      "hallucinated_safety_count": 0,
+      "complication_penalty": 0,
+      "episode_score": 1.0
+    }
+  ],
+  "aggregates": {
+    "n_scored": 24,
+    "critical_hit_rate_by_condition": {
+      "T0": {
+        "n": 12,
+        "rate": 0.0
+      },
+      "T1": {
+        "n": 12,
+        "rate": 0.0
+      }
+    },
+    "critical_hit_rate_by_strategy": {
+      "careful": {
+        "n": 12,
+        "rate": 0.0
+      },
+      "fast": {
+        "n": 12,
+        "rate": 0.0
+      }
+    },
+    "safe_rate_by_condition": {
+      "T0": {
+        "n": 12,
+        "rate": 0.9166666666666666
+      },
+      "T1": {
+        "n": 12,
+        "rate": 1.0
+      }
+    },
+    "safe_rate_by_strategy": {
+      "careful": {
+        "n": 12,
+        "rate": 1.0
+      },
+      "fast": {
+        "n": 12,
+        "rate": 0.9166666666666666
+      }
+    },
+    "mean_min_clearance_by_condition": {
+      "T0": {
+        "n": 12,
+        "mean": 11.149448890269246
+      },
+      "T1": {
+        "n": 12,
+        "mean": 10.848431028281533
+      }
+    },
+    "mean_min_clearance_by_strategy": {
+      "careful": {
+        "n": 12,
+        "mean": 11.388555263430929
+      },
+      "fast": {
+        "n": 12,
+        "mean": 10.609324655119853
+      }
+    },
+    "mean_corridor_regret_by_condition": {
+      "T0": {
+        "n": 12,
+        "mean": 0.2870539712089057
+      },
+      "T1": {
+        "n": 12,
+        "mean": 0.00015471317257801745
+      }
+    },
+    "overall_margin_calibration_error": 0.24125,
+    "margin_calibration_error_by_condition": {
+      "T0": {
+        "n": 12,
+        "mean": 0.3166666666666667
+      },
+      "T1": {
+        "n": 12,
+        "mean": 0.16583333333333336
+      }
+    },
+    "overconfident_near_vessel_rate": 0.041666666666666664,
+    "calibration_table": [
+      {
+        "bin": [
+          0.0,
+          0.2
+        ],
+        "n": 0,
+        "mean_confidence": null,
+        "empirical_safe_rate": null
+      },
+      {
+        "bin": [
+          0.2,
+          0.4
+        ],
+        "n": 0,
+        "mean_confidence": null,
+        "empirical_safe_rate": null
+      },
+      {
+        "bin": [
+          0.4,
+          0.6
+        ],
+        "n": 7,
+        "mean_confidence": 0.6,
+        "empirical_safe_rate": 1.0
+      },
+      {
+        "bin": [
+          0.6,
+          0.8
+        ],
+        "n": 3,
+        "mean_confidence": 0.7366666666666667,
+        "empirical_safe_rate": 1.0
+      },
+      {
+        "bin": [
+          0.8,
+          1.0
+        ],
+        "n": 14,
+        "mean_confidence": 0.9000000000000001,
+        "empirical_safe_rate": 0.9285714285714286
+      }
+    ],
+    "sealed_optimal_min_clearance_per_case": {
+      "pilot-blind-001": {
+        "tier": "wide",
+        "sealed_optimal_min_clearance_mm": 17.369774446649718
+      },
+      "pilot-blind-002": {
+        "tier": "wide",
+        "sealed_optimal_min_clearance_mm": 20.07329722755856
+      },
+      "pilot-blind-003": {
+        "tier": "moderate",
+        "sealed_optimal_min_clearance_mm": 9.108364073262825
+      },
+      "pilot-blind-004": {
+        "tier": "moderate",
+        "sealed_optimal_min_clearance_mm": 8.675274509295619
+      },
+      "pilot-blind-005": {
+        "tier": "tight",
+        "sealed_optimal_min_clearance_mm": 3.0214841080113377
+      },
+      "pilot-blind-006": {
+        "tier": "tight",
+        "sealed_optimal_min_clearance_mm": 4.738060039465858
+      }
+    },
+    "confidence_vs_true_clearance_correlations": {
+      "T0-careful": {
+        "n": 6,
+        "pearson_r": null,
+        "spearman_rho": null,
+        "confidence_values": [
+          0.6,
+          0.6,
+          0.6,
+          0.6,
+          0.6,
+          0.6
+        ],
+        "min_clearance_values": [
+          18.3576,
+          20.5913,
+          10.7703,
+          9.434,
+          3.6056,
+          6.7082
+        ],
+        "note": "confidence has zero variance in this group -> correlation undefined"
+      },
+      "T0-fast": {
+        "n": 6,
+        "pearson_r": null,
+        "spearman_rho": null,
+        "confidence_values": [
+          0.9,
+          0.9,
+          0.9,
+          0.9,
+          0.9,
+          0.9
+        ],
+        "min_clearance_values": [
+          17.4929,
+          19.7231,
+          9.8489,
+          8.6023,
+          2.8284,
+          5.831
+        ],
+        "note": "confidence has zero variance in this group -> correlation undefined"
+      },
+      "T1-careful": {
+        "n": 6,
+        "pearson_r": 0.9187141371106946,
+        "spearman_rho": 0.9710083124552245,
+        "confidence_values": [
+          0.9,
+          0.9,
+          0.78,
+          0.78,
+          0.6,
+          0.65
+        ],
+        "min_clearance_values": [
+          17.3695,
+          20.0729,
+          9.1086,
+          8.6752,
+          5.3847,
+          6.5848
+        ],
+        "note": null
+      },
+      "T1-fast": {
+        "n": 6,
+        "pearson_r": null,
+        "spearman_rho": null,
+        "confidence_values": [
+          0.9,
+          0.9,
+          0.9,
+          0.9,
+          0.9,
+          0.9
+        ],
+        "min_clearance_values": [
+          17.3695,
+          20.0729,
+          9.1086,
+          8.6752,
+          3.0215,
+          4.7376
+        ],
+        "note": "confidence has zero variance in this group -> correlation undefined"
+      }
+    },
+    "condition_strategy_2x2": {
+      "T0-careful": {
+        "n": 6,
+        "path_safe_rate": 1.0,
+        "mean_min_clearance_mm": 11.577814331158132
+      },
+      "T0-fast": {
+        "n": 6,
+        "path_safe_rate": 0.8333333333333334,
+        "mean_min_clearance_mm": 10.721083449380359
+      },
+      "T1-careful": {
+        "n": 6,
+        "path_safe_rate": 1.0,
+        "mean_min_clearance_mm": 11.199296195703724
+      },
+      "T1-fast": {
+        "n": 6,
+        "path_safe_rate": 1.0,
+        "mean_min_clearance_mm": 10.49756586085935
+      }
+    }
+  }
+}

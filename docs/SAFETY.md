@@ -105,6 +105,7 @@ When reporting TRACE-3D results, always report `deterministic_fraction` (target
 > 0.65) alongside scores, disclose whether cases were synthetic or real,
 disclose the segmentation resolution / task used, and state that the safety
 metric is a static-geometry proxy blind to unlabeled small structures. Report the
-calibration metrics (`margin_calibration_error`, `overconfident_near_vessel`)
+calibration metrics (`margin_calibration_error`, `safety_calibration_error`,
+`overconfident_near_vessel`)
 alongside safety — a safer trajectory with miscalibrated confidence is the
 benchmark's central cautionary finding, not a success.

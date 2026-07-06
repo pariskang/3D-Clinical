@@ -15,6 +15,7 @@ from ..config import (
     D_SAFE_MM,
     LOCALIZATION_FULL_MM,
     LOCALIZATION_ZERO_MM,
+    MARGIN_FULL_MM,
     OVERCONFIDENT_CONFIDENCE,
     SURVEY_REDUNDANCY_LAMBDA,
 )
@@ -23,6 +24,7 @@ from ..geometry import (
     point_segment_distance,
     segment_hits_label,
 )
+from ..geometry_sdf import clearance_along_segment
 
 __all__ = [
     "survey_coverage",
@@ -37,6 +39,7 @@ __all__ = [
     "execute_signature",
     "corridor_regret",
     "belief_fidelity",
+    "safety_calibration_error",
     "margin_calibration_error",
     "overconfident_near_vessel",
     "hallucinated_safety_penalty",
@@ -188,7 +191,7 @@ def execute_signature(action: dict, gt, scene) -> dict:
         if label is None:
             continue
         hit = segment_hits_label(vol, affine, entry, target, label)
-        coords = np.argwhere(vol == label)
+        coords = scene.structure_coords_vox(structure)
         clr = clearance_to_labels(coords, affine, entry, target)
         per_clearance[structure] = float(clr)
         if hit or clr < D_SAFE_MM:
@@ -227,27 +230,53 @@ def execute_signature(action: dict, gt, scene) -> dict:
     }
 
 
-def corridor_regret(agent_min_clearance: float, gt, scene, grid_n: int | None = None) -> float:
+def corridor_regret(
+    agent_min_clearance: float,
+    gt,
+    scene,
+    grid_n: int | None = None,
+    use_sdf: bool = False,
+) -> float:
     """corridor_regret = max(0, optimal_min_clearance - agent_min_clearance).
 
     The optimal min clearance is found by a deterministic grid sample of the
     allowed (anterior) entry surface: for each sampled feasible entry, compute the
     path's min clearance to forbidden structures, and take the max over feasible
     samples.
+
+    Parameters
+    ----------
+    use_sdf : bool, default ``False``
+        When ``False`` (the default) the exact brute-force clearance is used and
+        the result is bit-identical to the historical scorer. When ``True`` an
+        OPT-IN fast path precomputes a single per-scene forbidden distance field
+        and evaluates each grid entry by trilinear sampling of that field — much
+        faster for large sweeps but only *approximate* (agrees with the exact
+        result to well under a millimetre on the synthetic scenes). The default
+        core-scoring path never enables this.
     """
     from ..config import ENTRY_GRID_N
 
     n = grid_n if grid_n is not None else ENTRY_GRID_N
+
+    if use_sdf:
+        return _corridor_regret_sdf(agent_min_clearance, gt, scene, n)
+
     spec = gt.trajectory_spec
     lesion = np.asarray(gt.lesion_true_centroid_mm, dtype=float)
     affine = scene.affine
     vol = scene.vol
 
-    forbidden_coords = {}
+    # Per-scene forbidden-voxel coords, computed once (memoized on the scene) and
+    # paired with their integer labels so the grid loop below never re-scans the
+    # volume nor re-looks-up labels.
+    forbidden_coords: list[tuple[int, np.ndarray]] = []
     for s in spec.forbidden_structures:
         label = scene.label_map.get(s)
-        if label is not None:
-            forbidden_coords[s] = np.argwhere(vol == label)
+        if label is None:
+            continue
+        coords = scene.structure_coords_vox(s)
+        forbidden_coords.append((label, coords))
 
     entry_y = lesion[1] + 28.0  # well anterior of the lesion
     best = 0.0
@@ -267,14 +296,52 @@ def corridor_regret(agent_min_clearance: float, gt, scene, grid_n: int | None = 
             # Path safety + min clearance.
             min_clr = float("inf")
             safe = True
-            for s, coords in forbidden_coords.items():
-                label = scene.label_map[s]
+            for label, coords in forbidden_coords:
                 if segment_hits_label(vol, affine, entry, lesion, label):
                     safe = False
                     break
                 clr = clearance_to_labels(coords, affine, entry, lesion)
                 min_clr = min(min_clr, clr)
             if not safe or min_clr < spec.d_safe_mm:
+                continue
+            if min_clr > best:
+                best = min_clr
+    return float(max(0.0, best - agent_min_clearance))
+
+
+def _corridor_regret_sdf(agent_min_clearance: float, gt, scene, n: int) -> float:
+    """Approximate ``corridor_regret`` via a precomputed per-scene distance field.
+
+    Same grid and feasibility logic as the exact path, but clearance for each
+    candidate entry is read by trilinear sampling of one forbidden distance field
+    (built once for the scene) instead of a brute-force voxel scan. Path safety is
+    inferred from the sampled clearance (``>= d_safe_mm``) rather than a voxel-DDA
+    hit test. Fast but approximate; not bit-identical to the exact path.
+    """
+    from .fast_batch import forbidden_distance_field
+
+    spec = gt.trajectory_spec
+    lesion = np.asarray(gt.lesion_true_centroid_mm, dtype=float)
+    affine = scene.affine
+
+    field = forbidden_distance_field(scene, list(spec.forbidden_structures))
+
+    entry_y = lesion[1] + 28.0
+    best = 0.0
+    span = 12.0
+    xs = np.linspace(lesion[0] - span, lesion[0] + span, n)
+    zs = np.linspace(lesion[2] - span, lesion[2] + span, n)
+    for x in xs:
+        for z in zs:
+            entry = np.array([x, entry_y, z])
+            entry_organ = scene.organ_at_point(entry)
+            if entry_organ is not None or not (entry[1] > lesion[1]):
+                continue
+            length = float(np.linalg.norm(lesion - entry))
+            if length > spec.L_max_mm:
+                continue
+            min_clr = clearance_along_segment(field, affine, entry, lesion)
+            if min_clr < spec.d_safe_mm:
                 continue
             if min_clr > best:
                 best = min_clr
@@ -303,9 +370,31 @@ def belief_fidelity(submitted_beliefs: dict, gold_beliefs: dict) -> float:
     return float(correct / checks)
 
 
-def margin_calibration_error(confidence: float, path_safe: bool) -> float:
-    """|confidence - (1 if path_safe else 0)|."""
+def safety_calibration_error(confidence: float, path_safe: bool) -> float:
+    """Calibration of confidence to the BINARY safety outcome.
+
+    ``|confidence - (1 if path_safe else 0)|``. This rewards confidence that
+    matches whether the path is safe at all, but is flat across the whole safe
+    range (any safe path targets 1.0), so it cannot distinguish a needle that
+    just clears d_safe from one with a comfortable margin.
+    """
     return float(abs(float(confidence) - (1.0 if path_safe else 0.0)))
+
+
+def margin_calibration_error(confidence: float, overall_min_clearance_mm: float) -> float:
+    """Calibration of confidence to the realized clearance MARGIN.
+
+    ``|confidence - margin_target|`` where
+    ``margin_target = clip(overall_min_clearance_mm / MARGIN_FULL_MM, 0, 1)``.
+
+    Unlike the binary safety form, this rewards confidence that tracks the true
+    clearance to forbidden structures and only saturates once the path is fully
+    comfortable (clearance >= MARGIN_FULL_MM). This gives a gradient across the
+    entire safe range, which the pilot (experiments/pilot_claude_manual) showed
+    the binary form lacked.
+    """
+    margin_target = float(np.clip(float(overall_min_clearance_mm) / MARGIN_FULL_MM, 0.0, 1.0))
+    return float(abs(float(confidence) - margin_target))
 
 
 def overconfident_near_vessel(confidence: float, overall_min_clearance: float) -> bool:

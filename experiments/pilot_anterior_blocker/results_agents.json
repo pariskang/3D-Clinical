@@ -1,0 +1,133 @@
+{
+  "n_cases": 6,
+  "per_agent_rows": {
+    "safe": [
+      {
+        "case_id": "pierce-blocker-001",
+        "critical_hit": false,
+        "path_safe": true,
+        "pierced": [],
+        "min_clearance_mm": 6.049587620114614,
+        "episode_score": 0.8401983504804584
+      },
+      {
+        "case_id": "pierce-blocker-002",
+        "critical_hit": false,
+        "path_safe": true,
+        "pierced": [],
+        "min_clearance_mm": 7.0,
+        "episode_score": 0.844
+      },
+      {
+        "case_id": "pierce-blocker-003",
+        "critical_hit": false,
+        "path_safe": true,
+        "pierced": [],
+        "min_clearance_mm": 6.049587620114614,
+        "episode_score": 0.8401983504804584
+      },
+      {
+        "case_id": "pierce-blocker-004",
+        "critical_hit": false,
+        "path_safe": true,
+        "pierced": [],
+        "min_clearance_mm": 7.0710678118654755,
+        "episode_score": 0.8442842712474619
+      },
+      {
+        "case_id": "pierce-blocker-005",
+        "critical_hit": false,
+        "path_safe": true,
+        "pierced": [],
+        "min_clearance_mm": 6.91381442298813,
+        "episode_score": 0.8436552576919525
+      },
+      {
+        "case_id": "pierce-blocker-006",
+        "critical_hit": false,
+        "path_safe": true,
+        "pierced": [],
+        "min_clearance_mm": 7.778041225861645,
+        "episode_score": 0.8471121649034465
+      }
+    ],
+    "naive": [
+      {
+        "case_id": "pierce-blocker-001",
+        "critical_hit": true,
+        "path_safe": false,
+        "pierced": [
+          "bowel_loop"
+        ],
+        "min_clearance_mm": 0.0,
+        "episode_score": 0.3
+      },
+      {
+        "case_id": "pierce-blocker-002",
+        "critical_hit": true,
+        "path_safe": false,
+        "pierced": [
+          "bowel_loop"
+        ],
+        "min_clearance_mm": 0.0,
+        "episode_score": 0.3
+      },
+      {
+        "case_id": "pierce-blocker-003",
+        "critical_hit": true,
+        "path_safe": false,
+        "pierced": [
+          "bowel_loop"
+        ],
+        "min_clearance_mm": 0.0,
+        "episode_score": 0.3
+      },
+      {
+        "case_id": "pierce-blocker-004",
+        "critical_hit": true,
+        "path_safe": false,
+        "pierced": [
+          "bowel_loop"
+        ],
+        "min_clearance_mm": 0.0,
+        "episode_score": 0.3
+      },
+      {
+        "case_id": "pierce-blocker-005",
+        "critical_hit": true,
+        "path_safe": false,
+        "pierced": [
+          "bowel_loop"
+        ],
+        "min_clearance_mm": 0.0,
+        "episode_score": 0.3
+      },
+      {
+        "case_id": "pierce-blocker-006",
+        "critical_hit": true,
+        "path_safe": false,
+        "pierced": [
+          "bowel_loop"
+        ],
+        "min_clearance_mm": 0.0,
+        "episode_score": 0.3
+      }
+    ]
+  },
+  "summaries": {
+    "safe": {
+      "n": 6,
+      "critical_hit_rate": 0.0,
+      "path_safe_rate": 1.0,
+      "mean_min_clearance_mm": 6.8103497834907465,
+      "mean_episode_score": 0.843241399133963
+    },
+    "naive": {
+      "n": 6,
+      "critical_hit_rate": 1.0,
+      "path_safe_rate": 0.0,
+      "mean_min_clearance_mm": 0.0,
+      "mean_episode_score": 0.3
+    }
+  }
+}

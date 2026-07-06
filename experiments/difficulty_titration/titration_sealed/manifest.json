@@ -1,0 +1,311 @@
+{
+  "private_seed": 20260705,
+  "scene_family": "anterior_blocker",
+  "bin_edges_mm": [
+    3.5,
+    4.5,
+    5.5,
+    6.5,
+    7.5,
+    8.5,
+    9.5,
+    10.5,
+    11.5
+  ],
+  "n_bins": 8,
+  "per_bin_target": 6,
+  "d_safe_mm": 3.0,
+  "n_candidates_evaluated": 169,
+  "scenes": [
+    {
+      "scene_id": "titration-001",
+      "dir": "scene_01",
+      "w_bin": 0,
+      "w_mm": 3.5744
+    },
+    {
+      "scene_id": "titration-002",
+      "dir": "scene_02",
+      "w_bin": 0,
+      "w_mm": 3.7813
+    },
+    {
+      "scene_id": "titration-003",
+      "dir": "scene_03",
+      "w_bin": 0,
+      "w_mm": 3.801
+    },
+    {
+      "scene_id": "titration-004",
+      "dir": "scene_04",
+      "w_bin": 0,
+      "w_mm": 4.2916
+    },
+    {
+      "scene_id": "titration-005",
+      "dir": "scene_05",
+      "w_bin": 0,
+      "w_mm": 4.3193
+    },
+    {
+      "scene_id": "titration-006",
+      "dir": "scene_06",
+      "w_bin": 0,
+      "w_mm": 4.3193
+    },
+    {
+      "scene_id": "titration-007",
+      "dir": "scene_07",
+      "w_bin": 1,
+      "w_mm": 4.8377
+    },
+    {
+      "scene_id": "titration-008",
+      "dir": "scene_08",
+      "w_bin": 1,
+      "w_mm": 4.9746
+    },
+    {
+      "scene_id": "titration-009",
+      "dir": "scene_09",
+      "w_bin": 1,
+      "w_mm": 5.0401
+    },
+    {
+      "scene_id": "titration-010",
+      "dir": "scene_10",
+      "w_bin": 1,
+      "w_mm": 5.3168
+    },
+    {
+      "scene_id": "titration-011",
+      "dir": "scene_11",
+      "w_bin": 1,
+      "w_mm": 5.4881
+    },
+    {
+      "scene_id": "titration-012",
+      "dir": "scene_12",
+      "w_bin": 1,
+      "w_mm": 5.4881
+    },
+    {
+      "scene_id": "titration-013",
+      "dir": "scene_13",
+      "w_bin": 2,
+      "w_mm": 5.4881
+    },
+    {
+      "scene_id": "titration-014",
+      "dir": "scene_14",
+      "w_bin": 2,
+      "w_mm": 5.5288
+    },
+    {
+      "scene_id": "titration-015",
+      "dir": "scene_15",
+      "w_bin": 2,
+      "w_mm": 5.5395
+    },
+    {
+      "scene_id": "titration-016",
+      "dir": "scene_16",
+      "w_bin": 2,
+      "w_mm": 5.8743
+    },
+    {
+      "scene_id": "titration-017",
+      "dir": "scene_17",
+      "w_bin": 2,
+      "w_mm": 6.0421
+    },
+    {
+      "scene_id": "titration-018",
+      "dir": "scene_18",
+      "w_bin": 2,
+      "w_mm": 6.2199
+    },
+    {
+      "scene_id": "titration-019",
+      "dir": "scene_19",
+      "w_bin": 3,
+      "w_mm": 6.5175
+    },
+    {
+      "scene_id": "titration-020",
+      "dir": "scene_20",
+      "w_bin": 3,
+      "w_mm": 6.5175
+    },
+    {
+      "scene_id": "titration-021",
+      "dir": "scene_21",
+      "w_bin": 3,
+      "w_mm": 6.5175
+    },
+    {
+      "scene_id": "titration-022",
+      "dir": "scene_22",
+      "w_bin": 3,
+      "w_mm": 6.5654
+    },
+    {
+      "scene_id": "titration-023",
+      "dir": "scene_23",
+      "w_bin": 3,
+      "w_mm": 6.7382
+    },
+    {
+      "scene_id": "titration-024",
+      "dir": "scene_24",
+      "w_bin": 3,
+      "w_mm": 7.2565
+    },
+    {
+      "scene_id": "titration-025",
+      "dir": "scene_25",
+      "w_bin": 4,
+      "w_mm": 7.5627
+    },
+    {
+      "scene_id": "titration-026",
+      "dir": "scene_26",
+      "w_bin": 4,
+      "w_mm": 7.602
+    },
+    {
+      "scene_id": "titration-027",
+      "dir": "scene_27",
+      "w_bin": 4,
+      "w_mm": 7.8929
+    },
+    {
+      "scene_id": "titration-028",
+      "dir": "scene_28",
+      "w_bin": 4,
+      "w_mm": 8.1204
+    },
+    {
+      "scene_id": "titration-029",
+      "dir": "scene_29",
+      "w_bin": 4,
+      "w_mm": 8.4093
+    },
+    {
+      "scene_id": "titration-030",
+      "dir": "scene_30",
+      "w_bin": 4,
+      "w_mm": 8.4659
+    },
+    {
+      "scene_id": "titration-031",
+      "dir": "scene_31",
+      "w_bin": 5,
+      "w_mm": 8.5815
+    },
+    {
+      "scene_id": "titration-032",
+      "dir": "scene_32",
+      "w_bin": 5,
+      "w_mm": 8.5815
+    },
+    {
+      "scene_id": "titration-033",
+      "dir": "scene_33",
+      "w_bin": 5,
+      "w_mm": 9.0981
+    },
+    {
+      "scene_id": "titration-034",
+      "dir": "scene_34",
+      "w_bin": 5,
+      "w_mm": 9.0981
+    },
+    {
+      "scene_id": "titration-035",
+      "dir": "scene_35",
+      "w_bin": 5,
+      "w_mm": 9.157
+    },
+    {
+      "scene_id": "titration-036",
+      "dir": "scene_36",
+      "w_bin": 5,
+      "w_mm": 9.4427
+    },
+    {
+      "scene_id": "titration-037",
+      "dir": "scene_37",
+      "w_bin": 6,
+      "w_mm": 9.5026
+    },
+    {
+      "scene_id": "titration-038",
+      "dir": "scene_38",
+      "w_bin": 6,
+      "w_mm": 9.5026
+    },
+    {
+      "scene_id": "titration-039",
+      "dir": "scene_39",
+      "w_bin": 6,
+      "w_mm": 9.615
+    },
+    {
+      "scene_id": "titration-040",
+      "dir": "scene_40",
+      "w_bin": 6,
+      "w_mm": 9.6753
+    },
+    {
+      "scene_id": "titration-041",
+      "dir": "scene_41",
+      "w_bin": 6,
+      "w_mm": 10.0209
+    },
+    {
+      "scene_id": "titration-042",
+      "dir": "scene_42",
+      "w_bin": 6,
+      "w_mm": 10.1936
+    },
+    {
+      "scene_id": "titration-043",
+      "dir": "scene_43",
+      "w_bin": 7,
+      "w_mm": 10.6491
+    },
+    {
+      "scene_id": "titration-044",
+      "dir": "scene_44",
+      "w_bin": 7,
+      "w_mm": 10.6491
+    },
+    {
+      "scene_id": "titration-045",
+      "dir": "scene_45",
+      "w_bin": 7,
+      "w_mm": 10.6491
+    },
+    {
+      "scene_id": "titration-046",
+      "dir": "scene_46",
+      "w_bin": 7,
+      "w_mm": 10.712
+    },
+    {
+      "scene_id": "titration-047",
+      "dir": "scene_47",
+      "w_bin": 7,
+      "w_mm": 10.712
+    },
+    {
+      "scene_id": "titration-048",
+      "dir": "scene_48",
+      "w_bin": 7,
+      "w_mm": 11.2303
+    }
+  ],
+  "n_scenes": 48,
+  "max_fast_vs_exact_w_diff_mm": 0.055992
+}

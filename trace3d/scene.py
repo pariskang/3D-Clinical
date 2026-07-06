@@ -19,36 +19,74 @@ __all__ = ["SceneGraph"]
 
 
 def _surface_coords_vox(mask: np.ndarray) -> np.ndarray:
-    """Return voxel coords on the surface of ``mask`` (6-neighbour boundary)."""
-    coords = np.argwhere(mask)
-    if coords.shape[0] == 0:
-        return coords
-    nx, ny, nz = mask.shape
-    surface = []
-    for (i, j, k) in coords:
-        boundary = False
-        for di, dj, dk in ((1, 0, 0), (-1, 0, 0), (0, 1, 0), (0, -1, 0), (0, 0, 1), (0, 0, -1)):
-            ni, nj, nk = i + di, j + dj, k + dk
-            if not (0 <= ni < nx and 0 <= nj < ny and 0 <= nk < nz) or not mask[ni, nj, nk]:
-                boundary = True
-                break
-        if boundary:
-            surface.append((i, j, k))
-    return np.array(surface, dtype=int)
+    """Return voxel coords on the surface of ``mask`` (6-neighbour boundary).
+
+    A voxel is on the surface iff it belongs to ``mask`` and at least one of its
+    6 face-neighbours is out of bounds or not in ``mask``. This is a fully
+    vectorized reformulation of the original per-voxel loop and returns the
+    identical surface voxel set in the identical (lexicographic) ``argwhere``
+    order.
+    """
+    if not mask.any():
+        return np.empty((0, 3), dtype=int)
+    # Pad with False so out-of-bounds neighbours count as "not in mask".
+    padded = np.zeros((mask.shape[0] + 2, mask.shape[1] + 2, mask.shape[2] + 2), dtype=bool)
+    padded[1:-1, 1:-1, 1:-1] = mask
+    # A voxel is interior iff ALL 6 face-neighbours are in mask.
+    interior = (
+        padded[2:, 1:-1, 1:-1]
+        & padded[:-2, 1:-1, 1:-1]
+        & padded[1:-1, 2:, 1:-1]
+        & padded[1:-1, :-2, 1:-1]
+        & padded[1:-1, 1:-1, 2:]
+        & padded[1:-1, 1:-1, :-2]
+    )
+    boundary = mask & ~interior
+    return np.argwhere(boundary)
+
+
+def _world_surface_coords(affine, surf_vox) -> np.ndarray:
+    """Map surface voxel coords to world (mm) coords via the affine.
+
+    Identical operation to the transform previously performed inside
+    ``_min_surface_distance_mm``; hoisted so per-structure world coords can be
+    computed once and reused across all pairs.
+    """
+    if surf_vox.shape[0] == 0:
+        return np.empty((0, 3), dtype=float)
+    ones = np.ones((surf_vox.shape[0], 1))
+    return (affine @ np.hstack([surf_vox, ones]).T).T[:, :3]
+
+
+def _min_surface_distance_world(wa, wb) -> float:
+    """Minimum euclidean distance between two world-space point sets.
+
+    Uses the identical per-pair formula ``sqrt(dx^2 + dy^2 + dz^2)`` as before,
+    but blocks the pairwise matrix over rows of ``wa`` so the full |A|x|B|x3
+    array is never materialized. ``min`` selects one of the per-pair distances
+    unchanged, so the result is bit-identical to the un-chunked reduction.
+    """
+    if wa.shape[0] == 0 or wb.shape[0] == 0:
+        return float("inf")
+    # Cap intermediate elements per block for memory safety (~cap*3*8 bytes).
+    cap = 4_000_000
+    chunk = max(1, cap // max(1, wb.shape[0]))
+    best = float("inf")
+    for start in range(0, wa.shape[0], chunk):
+        wa_chunk = wa[start:start + chunk]
+        diff = wa_chunk[:, None, :] - wb[None, :, :]
+        dist = np.sqrt((diff ** 2).sum(axis=2))
+        m = float(dist.min())
+        if m < best:
+            best = m
+    return best
 
 
 def _min_surface_distance_mm(affine, surf_a_vox, surf_b_vox) -> float:
     """Minimum world-space distance between two surface voxel sets."""
-    if surf_a_vox.shape[0] == 0 or surf_b_vox.shape[0] == 0:
-        return float("inf")
-    ones_a = np.ones((surf_a_vox.shape[0], 1))
-    ones_b = np.ones((surf_b_vox.shape[0], 1))
-    wa = (affine @ np.hstack([surf_a_vox, ones_a]).T).T[:, :3]
-    wb = (affine @ np.hstack([surf_b_vox, ones_b]).T).T[:, :3]
-    # Pairwise min distance via broadcasting (small surfaces).
-    diff = wa[:, None, :] - wb[None, :, :]
-    dist = np.sqrt((diff ** 2).sum(axis=2))
-    return float(dist.min())
+    wa = _world_surface_coords(affine, surf_a_vox)
+    wb = _world_surface_coords(affine, surf_b_vox)
+    return _min_surface_distance_world(wa, wb)
 
 
 def _direction(centroid_a_mm, centroid_b_mm) -> str:
@@ -75,6 +113,14 @@ class SceneGraph:
         # label_map: node id -> integer label in the volume
         self.label_map = label_map
         self._nodes_by_id = {n.id: n for n in model.nodes}
+        # Lazily-populated cache of ``np.argwhere(vol == label)`` per structure id.
+        # Scanning the full volume for a structure's voxels is expensive and the
+        # coordinates never change for a fixed scene, so memoize on first use.
+        self._forbidden_coords_cache: dict[str, np.ndarray] = {}
+        # Lazily-populated cache of per-scene forbidden distance fields (mm), keyed
+        # by the sorted tuple of structure ids. Used by the OPT-IN SDF fast backend
+        # (trace3d.scoring.fast_batch); never touched by the exact scoring path.
+        self._sdf_field_cache: dict[tuple[str, ...], np.ndarray] = {}
 
     # ---- construction -------------------------------------------------
 
@@ -149,11 +195,17 @@ class SceneGraph:
             surfaces[name] = _surface_coords_vox(mask)
             centroids[name] = centroid_world
 
+        # Precompute per-structure world (mm) surface coords once, so the affine
+        # transform is not redundantly recomputed for every pair.
+        world_surfaces: dict[str, np.ndarray] = {
+            name: _world_surface_coords(affine, surf) for name, surf in surfaces.items()
+        }
+
         edges: list[Edge] = []
         ids = [n.id for n in nodes]
         for i, src in enumerate(ids):
             for dst in ids[i + 1:]:
-                dmm = _min_surface_distance_mm(affine, surfaces[src], surfaces[dst])
+                dmm = _min_surface_distance_world(world_surfaces[src], world_surfaces[dst])
                 adjacent = dmm <= adjacency_threshold_mm
                 direction = _direction(centroids[src], centroids[dst])
                 edges.append(Edge(src=src, dst=dst, distance_surface_mm=dmm, adjacent=adjacent, direction=direction))
@@ -223,14 +275,30 @@ class SceneGraph:
                 best_id = n.id
         return best_id, best_d
 
+    def structure_coords_vox(self, structure: str) -> np.ndarray | None:
+        """Return (and memoize) the voxel coords of a structure by id.
+
+        Computes ``np.argwhere(vol == label)`` once per structure and caches it,
+        so repeated scorer calls (execute_signature / corridor_regret) never
+        re-scan the full volume. Returns ``None`` if the structure has no label.
+        """
+        label = self.label_map.get(structure)
+        if label is None:
+            return None
+        coords = self._forbidden_coords_cache.get(structure)
+        if coords is None:
+            coords = np.argwhere(self.vol == label)
+            self._forbidden_coords_cache[structure] = coords
+        return coords
+
     def forbidden_coords_vox(self, structures: list[str]) -> np.ndarray:
         """Return stacked voxel coords for the given forbidden structure ids."""
         chunks = []
         for s in structures:
-            label = self.label_map.get(s)
-            if label is None:
+            coords = self.structure_coords_vox(s)
+            if coords is None:
                 continue
-            chunks.append(np.argwhere(self.vol == label))
+            chunks.append(coords)
         if not chunks:
             return np.zeros((0, 3), dtype=int)
         return np.vstack(chunks)

@@ -1,0 +1,466 @@
+{
+  "case_id": "pilot-blind-001",
+  "condition": "T1_scene",
+  "patient_brief": {
+    "age": 61,
+    "sex": "female",
+    "presentation": "Incidental solid liver lesion on surveillance CT with rising AFP; image-guided percutaneous biopsy requested."
+  },
+  "radiology_finding": "Solid lesion in the RIGHT hepatic lobe, roughly mid-axial, approximately 2.5 cm deep to the anterior abdominal wall. Qualitatively it sits antero-lateral within the liver, with the major portal venous structures lying posterior and medial to it.",
+  "task": "Plan a single straight percutaneous needle corridor from the anterior abdominal wall to the center of the lesion for biopsy, avoiding all critical structures.",
+  "coordinate_frame": {
+    "frame": "RAS",
+    "units": "mm",
+    "axes": "+x right, +y anterior, +z superior",
+    "note": "All coordinates you submit must be world millimetres in this RAS frame."
+  },
+  "coarse_spatial_anchors": {
+    "body_bbox_mm": {
+      "min": [
+        -35.0,
+        -35.0,
+        -25.0
+      ],
+      "max": [
+        35.0,
+        35.0,
+        25.0
+      ]
+    },
+    "liver_bbox_mm_approx": {
+      "min": [
+        -1.0,
+        -9.0,
+        -12.0
+      ],
+      "max": [
+        31.0,
+        19.0,
+        12.0
+      ]
+    },
+    "anterior_body_surface_plane_y_mm": 35.0
+  },
+  "critical_structures_to_avoid": [
+    "aorta",
+    "portal_vein",
+    "colon",
+    "lung_right",
+    "gallbladder"
+  ],
+  "scene_graph": {
+    "frame": "RAS",
+    "spacing_mm": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "midline_x_mm": -0.5,
+    "structures": {
+      "body": {
+        "centroid_mm": [
+          -0.263,
+          -0.477,
+          -0.244
+        ],
+        "bbox_mm": {
+          "min": [
+            -35.0,
+            -35.0,
+            -25.0
+          ],
+          "max": [
+            35.0,
+            35.0,
+            25.0
+          ]
+        },
+        "side": "right",
+        "is_critical": false
+      },
+      "liver": {
+        "centroid_mm": [
+          15.171,
+          4.843,
+          0.129
+        ],
+        "bbox_mm": {
+          "min": [
+            -1.0,
+            -9.0,
+            -12.0
+          ],
+          "max": [
+            31.0,
+            19.0,
+            12.0
+          ]
+        },
+        "side": "right",
+        "is_critical": false
+      },
+      "aorta": {
+        "centroid_mm": [
+          -3.0,
+          -14.0,
+          0.0
+        ],
+        "bbox_mm": {
+          "min": [
+            -6.0,
+            -17.0,
+            -22.0
+          ],
+          "max": [
+            0.0,
+            -11.0,
+            22.0
+          ]
+        },
+        "side": "left",
+        "is_critical": true
+      },
+      "portal_vein": {
+        "centroid_mm": [
+          5.278,
+          -7.111,
+          0.0
+        ],
+        "bbox_mm": {
+          "min": [
+            3.0,
+            -9.0,
+            -16.0
+          ],
+          "max": [
+            7.0,
+            -5.0,
+            16.0
+          ]
+        },
+        "side": "right",
+        "is_critical": true
+      },
+      "lung_right": {
+        "centroid_mm": [
+          14.023,
+          -1.988,
+          20.013
+        ],
+        "bbox_mm": {
+          "min": [
+            2.0,
+            -12.0,
+            12.0
+          ],
+          "max": [
+            26.0,
+            8.0,
+            28.0
+          ]
+        },
+        "side": "right",
+        "is_critical": false
+      },
+      "colon": {
+        "centroid_mm": [
+          -19.0,
+          10.0,
+          -2.0
+        ],
+        "bbox_mm": {
+          "min": [
+            -28.0,
+            0.0,
+            -12.0
+          ],
+          "max": [
+            -10.0,
+            20.0,
+            8.0
+          ]
+        },
+        "side": "left",
+        "is_critical": true
+      },
+      "gallbladder": {
+        "centroid_mm": [
+          8.0,
+          12.0,
+          -6.0
+        ],
+        "bbox_mm": {
+          "min": [
+            4.0,
+            8.0,
+            -10.0
+          ],
+          "max": [
+            12.0,
+            16.0,
+            -2.0
+          ]
+        },
+        "side": "right",
+        "is_critical": false
+      },
+      "lesion": {
+        "centroid_mm": [
+          14.588,
+          10.096,
+          -1.237
+        ],
+        "bbox_mm": {
+          "min": [
+            12.0,
+            8.0,
+            -4.0
+          ],
+          "max": [
+            17.0,
+            13.0,
+            1.0
+          ]
+        },
+        "side": "right",
+        "is_critical": false
+      }
+    },
+    "adjacency_edges": [
+      {
+        "src": "body",
+        "dst": "liver",
+        "distance_surface_mm": 1.0,
+        "adjacent": true,
+        "direction": "right"
+      },
+      {
+        "src": "body",
+        "dst": "aorta",
+        "distance_surface_mm": 1.0,
+        "adjacent": true,
+        "direction": "posterior"
+      },
+      {
+        "src": "body",
+        "dst": "portal_vein",
+        "distance_surface_mm": 1.0,
+        "adjacent": true,
+        "direction": "posterior"
+      },
+      {
+        "src": "body",
+        "dst": "lung_right",
+        "distance_surface_mm": 1.0,
+        "adjacent": true,
+        "direction": "superior"
+      },
+      {
+        "src": "body",
+        "dst": "colon",
+        "distance_surface_mm": 1.0,
+        "adjacent": true,
+        "direction": "left"
+      },
+      {
+        "src": "body",
+        "dst": "gallbladder",
+        "distance_surface_mm": 1.0,
+        "adjacent": true,
+        "direction": "anterior"
+      },
+      {
+        "src": "body",
+        "dst": "lesion",
+        "distance_surface_mm": 5.916,
+        "adjacent": true,
+        "direction": "right"
+      },
+      {
+        "src": "liver",
+        "dst": "aorta",
+        "distance_surface_mm": 8.602,
+        "adjacent": false,
+        "direction": "posterior"
+      },
+      {
+        "src": "liver",
+        "dst": "portal_vein",
+        "distance_surface_mm": 1.0,
+        "adjacent": true,
+        "direction": "posterior"
+      },
+      {
+        "src": "liver",
+        "dst": "lung_right",
+        "distance_surface_mm": 2.0,
+        "adjacent": true,
+        "direction": "superior"
+      },
+      {
+        "src": "liver",
+        "dst": "colon",
+        "distance_surface_mm": 9.0,
+        "adjacent": false,
+        "direction": "left"
+      },
+      {
+        "src": "liver",
+        "dst": "gallbladder",
+        "distance_surface_mm": 1.0,
+        "adjacent": true,
+        "direction": "left"
+      },
+      {
+        "src": "liver",
+        "dst": "lesion",
+        "distance_surface_mm": 1.0,
+        "adjacent": true,
+        "direction": "anterior"
+      },
+      {
+        "src": "aorta",
+        "dst": "portal_vein",
+        "distance_surface_mm": 5.831,
+        "adjacent": true,
+        "direction": "right"
+      },
+      {
+        "src": "aorta",
+        "dst": "lung_right",
+        "distance_surface_mm": 7.071,
+        "adjacent": false,
+        "direction": "superior"
+      },
+      {
+        "src": "aorta",
+        "dst": "colon",
+        "distance_surface_mm": 13.0,
+        "adjacent": false,
+        "direction": "anterior"
+      },
+      {
+        "src": "aorta",
+        "dst": "gallbladder",
+        "distance_surface_mm": 21.932,
+        "adjacent": false,
+        "direction": "anterior"
+      },
+      {
+        "src": "aorta",
+        "dst": "lesion",
+        "distance_surface_mm": 24.413,
+        "adjacent": false,
+        "direction": "anterior"
+      },
+      {
+        "src": "portal_vein",
+        "dst": "lung_right",
+        "distance_surface_mm": 1.0,
+        "adjacent": true,
+        "direction": "superior"
+      },
+      {
+        "src": "portal_vein",
+        "dst": "colon",
+        "distance_surface_mm": 14.765,
+        "adjacent": false,
+        "direction": "left"
+      },
+      {
+        "src": "portal_vein",
+        "dst": "gallbladder",
+        "distance_surface_mm": 13.153,
+        "adjacent": false,
+        "direction": "anterior"
+      },
+      {
+        "src": "portal_vein",
+        "dst": "lesion",
+        "distance_surface_mm": 14.765,
+        "adjacent": false,
+        "direction": "anterior"
+      },
+      {
+        "src": "lung_right",
+        "dst": "colon",
+        "distance_surface_mm": 15.843,
+        "adjacent": false,
+        "direction": "left"
+      },
+      {
+        "src": "lung_right",
+        "dst": "gallbladder",
+        "distance_surface_mm": 18.0,
+        "adjacent": false,
+        "direction": "inferior"
+      },
+      {
+        "src": "lung_right",
+        "dst": "lesion",
+        "distance_surface_mm": 13.892,
+        "adjacent": false,
+        "direction": "inferior"
+      },
+      {
+        "src": "colon",
+        "dst": "gallbladder",
+        "distance_surface_mm": 14.0,
+        "adjacent": false,
+        "direction": "right"
+      },
+      {
+        "src": "colon",
+        "dst": "lesion",
+        "distance_surface_mm": 22.0,
+        "adjacent": false,
+        "direction": "right"
+      },
+      {
+        "src": "gallbladder",
+        "dst": "lesion",
+        "distance_surface_mm": 2.236,
+        "adjacent": true,
+        "direction": "right"
+      }
+    ]
+  },
+  "lesion_target": {
+    "note": "Aim target = lesion centroid (legitimately provided).",
+    "centroid_mm": [
+      14.588,
+      10.096,
+      -1.237
+    ],
+    "side": "right"
+  },
+  "allowed_entry_surface": {
+    "surface": "anterior_abdominal_wall",
+    "plane_y_mm": 35.0,
+    "region_bbox_mm": {
+      "min": [
+        -1.0,
+        34.0,
+        -12.0
+      ],
+      "max": [
+        31.0,
+        35.0,
+        12.0
+      ]
+    },
+    "note": "Enter through the anterior wall within this window; +y is anterior."
+  },
+  "thresholds": {
+    "r_target_mm": 5.0,
+    "d_safe_mm": 3.0,
+    "L_max_mm": 80.0,
+    "max_angle_deg": 60.0,
+    "forbidden_structures": [
+      "aorta",
+      "portal_vein",
+      "colon"
+    ]
+  },
+  "withheld": "Optimal corridor, forbidden-voxel occupancy, and precomputed clearances are NOT provided."
+}

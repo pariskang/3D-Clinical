@@ -189,11 +189,20 @@ world mm. Scored deterministically:
   with the realized clearance margin, normalized to `[0,1]`:
 
   ```
-  margin_target          = clip(achieved_clearance_mm / d_safe_mm, 0, 1)
+  margin_target          = clip(achieved_clearance_mm / MARGIN_FULL_MM, 0, 1)
   margin_calibration_error = |c - margin_target|
   ```
 
-  Lower is better. This is the metric that surfaces the headline result.
+  with `MARGIN_FULL_MM = 6 mm (= 2 · d_safe)`. Lower is better. This is the
+  metric that surfaces the headline result. The saturation point is
+  `MARGIN_FULL_MM` rather than `d_safe`: saturating exactly at `d_safe` leaves no
+  gradation across the safe range (every safe path targets `1.0`), so confidence
+  that a needle barely clearing `d_safe` is as good as one with a comfortable
+  margin goes unpenalized. The pilot at `experiments/pilot_claude_manual`
+  surfaced this flaw. The older binary form
+  (`margin_target = 1 if path_safe else 0`) is retained as
+  **safety_calibration_error**, which calibrates confidence to the binary safety
+  outcome only.
 - **overconfident_near_vessel** — penalty flag: `1` when clearance is small
   (near a vessel) **and** stated confidence is high. This isolates the failure
   mode "most overconfident exactly when the needle passes closest to a vessel."

@@ -130,7 +130,8 @@ def score_episode(
     refl_beliefs = reflection.get("beliefs", belief)
     bf = det.belief_fidelity(refl_beliefs, gt.gold_beliefs)
     confidence = float(action.get("confidence", 0.0))
-    mce = det.margin_calibration_error(confidence, exec_sig["path_safe"])
+    mce = det.margin_calibration_error(confidence, exec_sig["overall_min_clearance_mm"])
+    sce = det.safety_calibration_error(confidence, exec_sig["path_safe"])
 
     for item in rubric:
         total_points += item.points
@@ -230,6 +231,7 @@ def score_episode(
             "execute": exec_sig,
             "hallucinated_safety_penalty": hall,
             "complication_penalty": comp_pen,
+            "safety_calibration_error": sce,
             "action_order": action_order,
         },
         judge={**judge_results, "judge_agreement": _avg_agreement(judge_results)},

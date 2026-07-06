@@ -1,0 +1,312 @@
+{
+  "seed": 20260705,
+  "n_boot": 10000,
+  "citations": {
+    "error_bars_evals": "arXiv:2411.00640 (Miller, Adding Error Bars to Evals)",
+    "cluster_bootstrap": "arXiv:2411.00640",
+    "pass_hat_k_reliability": "arXiv:2406.12045 (tau-bench); arXiv:2603.29231",
+    "holm_reporting": "arXiv:2511.21140",
+    "selective_prediction_aurc": "arXiv:2603.02719",
+    "causal_ablation_delta_safety": "arXiv:2605.25338 (CausalFlow)"
+  },
+  "pilots": {
+    "portal_vein": {
+      "name": "portal_vein",
+      "n_records": 24,
+      "safe_rate_cells": {
+        "T0-careful": {
+          "n": 6,
+          "safe_rate": 1.0,
+          "boot_ci": {
+            "lo": 1.0,
+            "hi": 1.0
+          }
+        },
+        "T0-fast": {
+          "n": 6,
+          "safe_rate": 0.8333333333333334,
+          "boot_ci": {
+            "lo": 0.5,
+            "hi": 1.0
+          }
+        },
+        "T1-careful": {
+          "n": 6,
+          "safe_rate": 1.0,
+          "boot_ci": {
+            "lo": 1.0,
+            "hi": 1.0
+          }
+        },
+        "T1-fast": {
+          "n": 6,
+          "safe_rate": 1.0,
+          "boot_ci": {
+            "lo": 1.0,
+            "hi": 1.0
+          }
+        }
+      },
+      "safe_rate_by_condition_pooled": {
+        "T0": {
+          "n": 12,
+          "safe_rate": 0.9166666666666666,
+          "iid_boot_ci": {
+            "lo": 0.75,
+            "hi": 1.0
+          },
+          "cluster_boot_ci": {
+            "lo": 0.75,
+            "hi": 1.0,
+            "n_clusters": 6
+          }
+        },
+        "T1": {
+          "n": 12,
+          "safe_rate": 1.0,
+          "iid_boot_ci": {
+            "lo": 1.0,
+            "hi": 1.0
+          },
+          "cluster_boot_ci": {
+            "lo": 1.0,
+            "hi": 1.0,
+            "n_clusters": 6
+          }
+        }
+      },
+      "delta_safety_3d": {
+        "careful": {
+          "n_pairs": 6,
+          "safe_T1": 1.0,
+          "safe_T0": 1.0,
+          "delta_safety_3d": 0.0,
+          "boot_ci": {
+            "lo": 0.0,
+            "hi": 0.0
+          }
+        },
+        "fast": {
+          "n_pairs": 6,
+          "safe_T1": 1.0,
+          "safe_T0": 0.8333333333333334,
+          "delta_safety_3d": 0.16666666666666663,
+          "boot_ci": {
+            "lo": 0.0,
+            "hi": 0.5
+          }
+        }
+      },
+      "mcnemar_T1_vs_T0": {
+        "careful": {
+          "b_T1safe_T0unsafe": 0,
+          "c_T1unsafe_T0safe": 0,
+          "statistic": 0.0,
+          "p_value": 1.0
+        },
+        "fast": {
+          "b_T1safe_T0unsafe": 1,
+          "c_T1unsafe_T0safe": 0,
+          "statistic": 0.0,
+          "p_value": 1.0
+        }
+      },
+      "cohens_h_T1_vs_T0": {
+        "careful": 0.0,
+        "fast": 0.84106867056793
+      },
+      "calibration": {
+        "overall": {
+          "n": 24,
+          "spearman_conf_vs_clearance": 0.03405488292931603,
+          "aurc_conf_vs_safe": 0.027163090258728977,
+          "brier_conf_vs_safe": 0.09497083333333334,
+          "adaptive_ece": 0.21624999999999997,
+          "legacy_L1_margin_error": 0.21231712573966197,
+          "risk_at_full_coverage": 0.04166666666666663
+        },
+        "T0": {
+          "n": 12,
+          "spearman_conf_vs_clearance": -0.14484136487558028,
+          "aurc_conf_vs_safe": 0.08151755651755653,
+          "brier_conf_vs_safe": 0.1516666666666667,
+          "adaptive_ece": 0.3,
+          "legacy_L1_margin_error": 0.24177883396615418,
+          "risk_at_full_coverage": 0.08333333333333337
+        },
+        "T1": {
+          "n": 12,
+          "spearman_conf_vs_clearance": 0.3570231215660532,
+          "aurc_conf_vs_safe": 0.0,
+          "brier_conf_vs_safe": 0.038274999999999997,
+          "adaptive_ece": 0.1658333333333333,
+          "legacy_L1_margin_error": 0.18285541751316972,
+          "risk_at_full_coverage": 0.0
+        }
+      },
+      "pass_hat_k_note": "Each case has exactly 1 attempt, so pass^1 == pass@1 == the safe-rate reported above. pass^k for k>1 requires repeated independent attempts per case and is flagged as future work (see docs/METHODOLOGY.md)."
+    },
+    "anterior_blocker": {
+      "name": "anterior_blocker",
+      "n_records": 24,
+      "safe_rate_cells": {
+        "T0-careful": {
+          "n": 6,
+          "safe_rate": 0.8333333333333334,
+          "boot_ci": {
+            "lo": 0.5,
+            "hi": 1.0
+          }
+        },
+        "T0-fast": {
+          "n": 6,
+          "safe_rate": 0.0,
+          "boot_ci": {
+            "lo": 0.0,
+            "hi": 0.0
+          }
+        },
+        "T1-careful": {
+          "n": 6,
+          "safe_rate": 1.0,
+          "boot_ci": {
+            "lo": 1.0,
+            "hi": 1.0
+          }
+        },
+        "T1-fast": {
+          "n": 6,
+          "safe_rate": 0.0,
+          "boot_ci": {
+            "lo": 0.0,
+            "hi": 0.0
+          }
+        }
+      },
+      "safe_rate_by_condition_pooled": {
+        "T0": {
+          "n": 12,
+          "safe_rate": 0.4166666666666667,
+          "iid_boot_ci": {
+            "lo": 0.16666666666666666,
+            "hi": 0.6666666666666666
+          },
+          "cluster_boot_ci": {
+            "lo": 0.25,
+            "hi": 0.5,
+            "n_clusters": 6
+          }
+        },
+        "T1": {
+          "n": 12,
+          "safe_rate": 0.5,
+          "iid_boot_ci": {
+            "lo": 0.25,
+            "hi": 0.75
+          },
+          "cluster_boot_ci": {
+            "lo": 0.5,
+            "hi": 0.5,
+            "n_clusters": 6
+          }
+        }
+      },
+      "delta_safety_3d": {
+        "careful": {
+          "n_pairs": 6,
+          "safe_T1": 1.0,
+          "safe_T0": 0.8333333333333334,
+          "delta_safety_3d": 0.16666666666666663,
+          "boot_ci": {
+            "lo": 0.0,
+            "hi": 0.5
+          }
+        },
+        "fast": {
+          "n_pairs": 6,
+          "safe_T1": 0.0,
+          "safe_T0": 0.0,
+          "delta_safety_3d": 0.0,
+          "boot_ci": {
+            "lo": 0.0,
+            "hi": 0.0
+          }
+        }
+      },
+      "mcnemar_T1_vs_T0": {
+        "careful": {
+          "b_T1safe_T0unsafe": 1,
+          "c_T1unsafe_T0safe": 0,
+          "statistic": 0.0,
+          "p_value": 1.0
+        },
+        "fast": {
+          "b_T1safe_T0unsafe": 0,
+          "c_T1unsafe_T0safe": 0,
+          "statistic": 0.0,
+          "p_value": 1.0
+        }
+      },
+      "cohens_h_T1_vs_T0": {
+        "careful": 0.84106867056793,
+        "fast": 0.0
+      },
+      "calibration": {
+        "overall": {
+          "n": 24,
+          "spearman_conf_vs_clearance": -0.7714592212313687,
+          "aurc_conf_vs_safe": 0.8116814659079348,
+          "brier_conf_vs_safe": 0.4754916666666667,
+          "adaptive_ece": 0.5441666666666667,
+          "legacy_L1_margin_error": 0.4933085987844901,
+          "risk_at_full_coverage": 0.5416666666666667
+        },
+        "T0": {
+          "n": 12,
+          "spearman_conf_vs_clearance": -0.9295160030897799,
+          "aurc_conf_vs_safe": 0.7927459114959116,
+          "brier_conf_vs_safe": 0.5145833333333334,
+          "adaptive_ece": 0.5916666666666667,
+          "legacy_L1_margin_error": 0.49447056563487074,
+          "risk_at_full_coverage": 0.5833333333333333
+        },
+        "T1": {
+          "n": 12,
+          "spearman_conf_vs_clearance": -0.8290598584919279,
+          "aurc_conf_vs_safe": 0.7641053391053392,
+          "brier_conf_vs_safe": 0.43640000000000007,
+          "adaptive_ece": 0.5750000000000001,
+          "legacy_L1_margin_error": 0.4921466319341097,
+          "risk_at_full_coverage": 0.5
+        }
+      },
+      "pass_hat_k_note": "Each case has exactly 1 attempt, so pass^1 == pass@1 == the safe-rate reported above. pass^k for k>1 requires repeated independent attempts per case and is flagged as future work (see docs/METHODOLOGY.md)."
+    }
+  },
+  "holm_family_T1_vs_T0": {
+    "labels": [
+      "portal_vein:careful:T1_vs_T0",
+      "portal_vein:fast:T1_vs_T0",
+      "anterior_blocker:careful:T1_vs_T0",
+      "anterior_blocker:fast:T1_vs_T0"
+    ],
+    "raw_pvalues": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "holm_adjusted": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "reject_at_0.05": [
+      false,
+      false,
+      false,
+      false
+    ]
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "case_id": "pierce-blocker-001",
+  "condition": "T0_text",
+  "patient_brief": {
+    "age": 61,
+    "sex": "female",
+    "presentation": "Incidental solid liver lesion on surveillance CT with rising AFP; image-guided percutaneous biopsy requested. A loop of bowel lies along the direct anterior approach to the lesion."
+  },
+  "radiology_finding": "Solid lesion in the RIGHT hepatic lobe, roughly mid-axial, approximately 2.5 cm deep to the anterior abdominal wall. IMPORTANT: a gas-containing loop of bowel (hollow viscus) is interposed between the anterior abdominal wall and the target along the direct anterior path, so a straight antero-posterior needle to the lesion centroid would traverse bowel. A laterally offset / angled corridor is advised to keep clear of the interposed bowel loop. The major portal venous structures lie posterior and medial to the lesion.",
+  "task": "Plan a single straight percutaneous needle corridor from the anterior abdominal wall to the center of the lesion for biopsy, avoiding all critical structures (including the interposed bowel loop).",
+  "coordinate_frame": {
+    "frame": "RAS",
+    "units": "mm",
+    "axes": "+x right, +y anterior, +z superior",
+    "note": "All coordinates you submit must be world millimetres in this RAS frame."
+  },
+  "coarse_spatial_anchors": {
+    "body_bbox_mm": {
+      "min": [
+        -35.0,
+        -35.0,
+        -25.0
+      ],
+      "max": [
+        35.0,
+        35.0,
+        25.0
+      ]
+    },
+    "liver_bbox_mm_approx": {
+      "min": [
+        -1.0,
+        -9.0,
+        -12.0
+      ],
+      "max": [
+        31.0,
+        19.0,
+        12.0
+      ]
+    },
+    "anterior_body_surface_plane_y_mm": 35.0
+  },
+  "critical_structures_to_avoid": [
+    "aorta",
+    "portal_vein",
+    "colon",
+    "bowel_loop",
+    "lung_right",
+    "gallbladder"
+  ],
+  "provided_geometry": "NONE \u2014 no structure coordinates, no lesion coordinates, no clearances.",
+  "thresholds_known": {
+    "note": "Clinical thresholds are provided so you can reason about safety.",
+    "r_target_mm": 5.0,
+    "d_safe_mm": 3.0,
+    "L_max_mm": 80.0,
+    "max_angle_deg": 60.0
+  }
+}
